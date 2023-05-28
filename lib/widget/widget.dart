@@ -51,7 +51,7 @@ Widget wallpapersList({
           itemCount: wallpapers.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            childAspectRatio: 0.6,
+            childAspectRatio: 0.7,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
           ),

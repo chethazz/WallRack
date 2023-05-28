@@ -93,11 +93,10 @@ class _CategoryImageState extends State<CategoryImage> {
           automaticallyImplyLeading: false,
           backgroundColor: Colors.black,
           title: Container(
-              height: 50,
               alignment: Alignment.bottomCenter,
               child: Text(
                 widget.categoryName.substring(0, 1).toUpperCase() + widget.categoryName.substring(1),
-                style: const TextStyle(color: Colors.white, fontSize: 26),
+                style: const TextStyle(color: Colors.white, fontSize: 28),
               )),
           elevation: 0.0),
       body: Container(
