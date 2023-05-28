@@ -23,7 +23,7 @@ jobs:
           echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
       - run: flutter --version
       - run: flutter pub get
-      - run: flutter build apk
+      - run: flutter build apk -v
       - name: Sign app
         uses: ilharp/sign-android-release@v1
         id: sign_app
