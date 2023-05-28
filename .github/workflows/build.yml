@@ -1,0 +1,32 @@
+on:
+  push:
+    branches:
+      - main
+name: "Build & Release"
+jobs:
+  build:
+    name: Build & Release
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '17.x'
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: '2.19.6'
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: '2.19.6'
+      - run: |
+          git clone https://github.com/flutter/flutter.git -b stable --depth 1
+          echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
+      - run: flutter --version
+      - run: flutter pub get
+      - run: flutter build apk
+      - name: Push to Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/apk/release/*"
+          tag: v1.0.${{ github.run_number }}
+          token: ${{ secrets.TOKEN }}
