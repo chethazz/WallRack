@@ -15,7 +15,7 @@ jobs:
       - name: Use Nodejs 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: '18x'
+          node-version: '18.x'
       - uses: dart-lang/setup-dart@v1
         with:
           sdk: '2.19.6'
