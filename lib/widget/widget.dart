@@ -72,6 +72,8 @@ Widget wallpapersList({
                         builder: (context) => ImageView(
                           imgUrl: wallpaper.src!.portrait,
                           originalUrl: wallpaper.src!.original,
+                          photographer: wallpaper.photographer!,
+                          photographerUrl: wallpaper.photographerUrl!,
                         ),
                       ),
                     );
