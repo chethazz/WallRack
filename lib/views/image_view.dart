@@ -65,7 +65,7 @@ class _ImageViewState extends State<ImageView> {
               child: Visibility(
                 visible: _showContainer,
                 child: Container(
-                  padding: const EdgeInsets.only(top: 20),
+                  padding: const EdgeInsets.only(top: 12),
                   decoration: const BoxDecoration(
                     color: Colors.black,
                     borderRadius: BorderRadius.only(
@@ -73,12 +73,12 @@ class _ImageViewState extends State<ImageView> {
                       topLeft: Radius.circular(20),
                     ),
                   ),
-                  height: MediaQuery.of(context).size.height / 5.3,
+                  height: MediaQuery.of(context).size.height / 5,
                   width: MediaQuery.of(context).size.width,
                   alignment: Alignment.bottomCenter,
                   child: Column(children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       alignment: Alignment.centerLeft,
                       height: 60,
                       child: Row(
@@ -87,7 +87,7 @@ class _ImageViewState extends State<ImageView> {
                             Text(
                               'By ${widget.photographer}',
                               style: const TextStyle(
-                                  color: Colors.white, fontSize: 24),
+                                  color: Colors.white, fontSize: 26),
                             ),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
@@ -109,7 +109,7 @@ class _ImageViewState extends State<ImageView> {
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
-                      margin: const EdgeInsets.only(top: 15),
+                      margin: const EdgeInsets.only(top: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
