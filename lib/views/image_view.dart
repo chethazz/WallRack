@@ -86,7 +86,7 @@ class _ImageViewState extends State<ImageView> {
                           children: [
                             Container(
                               padding: const EdgeInsets.only(left: 5),
-                              width: MediaQuery.of(context).size.width/1.4,
+                              width: MediaQuery.of(context).size.width / 1.4,
                               child: Text(
                                 'By ${widget.photographer}',
                                 style: const TextStyle(
@@ -103,9 +103,11 @@ class _ImageViewState extends State<ImageView> {
                                 ),
                               ),
                               onPressed: () async {
-                                final Uri url = Uri.parse(widget.photographerUrl);
-                                await launchUrl(url,
-                                mode: LaunchMode.externalApplication,
+                                final Uri url =
+                                    Uri.parse(widget.photographerUrl);
+                                await launchUrl(
+                                  url,
+                                  mode: LaunchMode.externalApplication,
                                 );
                               },
                               child: const Text('Visit'),
@@ -441,21 +443,10 @@ class _ImageViewState extends State<ImageView> {
             ),
             _downloading
                 ? Container(
-                    color: Colors.black.withOpacity(0.5),
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          CircularProgressIndicator(),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "Downloading...",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
-                      ),
+                    alignment: Alignment.bottomCenter,
+                    child: const LinearProgressIndicator(
+                      backgroundColor: Colors.black,
+                      color: Colors.white,
                     ),
                   )
                 : Container(),
@@ -532,8 +523,11 @@ class _ImageViewState extends State<ImageView> {
 
       if (result['isSuccess'] == true) {
         SnackBar snackBar = const SnackBar(
-          content: Text("Image Saved"),
-          backgroundColor: Colors.green,
+          content: Text(
+            "Image Saved",
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
         );
 
         if (!mounted) return;
