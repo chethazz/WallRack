@@ -12,15 +12,15 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '17.x'
-      - uses: dart-lang/setup-dart@v1
-        with:
-          sdk: '2.19.6'
-      - uses: dart-lang/setup-dart@v1
-        with:
-          sdk: '2.19.6'
       - uses: actions/setup-node@v2
         with:
           node-version: "18.x"
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: '2.19.6'
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: '2.19.6'
       - run: |
           git clone https://github.com/flutter/flutter.git -b stable --depth 1
           echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
