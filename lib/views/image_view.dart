@@ -65,7 +65,7 @@ class _ImageViewState extends State<ImageView> {
               child: Visibility(
                 visible: _showContainer,
                 child: Container(
-                  padding: const EdgeInsets.only(top: 12),
+                  padding: const EdgeInsets.only(top: 15),
                   decoration: const BoxDecoration(
                     color: Colors.black,
                     borderRadius: BorderRadius.only(
@@ -73,7 +73,7 @@ class _ImageViewState extends State<ImageView> {
                       topLeft: Radius.circular(20),
                     ),
                   ),
-                  height: MediaQuery.of(context).size.height / 5,
+                  height: MediaQuery.of(context).size.height / 5.3,
                   width: MediaQuery.of(context).size.width,
                   alignment: Alignment.bottomCenter,
                   child: Column(children: [
@@ -84,10 +84,15 @@ class _ImageViewState extends State<ImageView> {
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'By ${widget.photographer}',
-                              style: const TextStyle(
-                                  color: Colors.white, fontSize: 26),
+                            Container(
+                              padding: const EdgeInsets.only(left: 5),
+                              width: MediaQuery.of(context).size.width/1.4,
+                              child: Text(
+                                'By ${widget.photographer}',
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 26),
+                                maxLines: 1,
+                              ),
                             ),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
@@ -109,7 +114,7 @@ class _ImageViewState extends State<ImageView> {
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
-                      margin: const EdgeInsets.only(top: 10),
+                      margin: const EdgeInsets.only(top: 20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -142,9 +147,7 @@ class _ImageViewState extends State<ImageView> {
                                         curve: Curves.fastOutSlowIn,
                                       ),
                                     );
-
                                     controller.forward();
-
                                     return SlideTransition(
                                       position: slideAnimation,
                                       child: AlertDialog(
