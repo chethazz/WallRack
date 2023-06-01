@@ -18,6 +18,9 @@ jobs:
       - uses: dart-lang/setup-dart@v1
         with:
           sdk: '2.19.6'
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "18.x"
       - run: |
           git clone https://github.com/flutter/flutter.git -b stable --depth 1
           echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
