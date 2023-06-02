@@ -64,35 +64,51 @@ Widget wallpapersList({
             } else {
               WallpaperModel wallpaper = wallpapers[index];
               return GridTile(
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ImageView(
-                          imgUrl: wallpaper.src!.portrait,
-                          originalUrl: wallpaper.src!.original,
-                          photographer: wallpaper.photographer!,
-                          photographerUrl: wallpaper.photographerUrl!,
+                child: Hero(
+                  tag: wallpaper.src!.portrait,
+                  child: Stack(
+                    children: [
+                      Container(
+                        height: double.infinity,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.white24,
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(18),
+                          child: Image.network(
+                            wallpaper.src!.portrait,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
-                    );
-                  },
-                  child: Hero(
-                    tag: wallpaper.src!.portrait,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white24,
-                        borderRadius: BorderRadius.circular(18),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.transparent,
+                            foregroundColor: Colors.black,
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18),
+                            )),
+                        child: Container(),
+                        onPressed: () {
+                          Future.delayed(const Duration(milliseconds: 150), () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ImageView(
+                                  imgUrl: wallpaper.src!.portrait,
+                                  originalUrl: wallpaper.src!.original,
+                                  photographer: wallpaper.photographer!,
+                                  photographerUrl: wallpaper.photographerUrl!,
+                                ),
+                              ),
+                            );
+                          });
+                        },
                       ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(18),
-                        child: Image.network(
-                          wallpaper.src!.portrait,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
+                    ],
                   ),
                 ),
               );
