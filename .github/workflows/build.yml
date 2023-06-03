@@ -27,6 +27,7 @@ jobs:
       - run: flutter --version
       - run: flutter pub get
       - run: flutter build apk -v
+      - run: sh -c "rm -rf build/app/outputs/apk/release/META-INF"
       - name: Sign app
         uses: ilharp/sign-android-release@v1
         id: sign_app
