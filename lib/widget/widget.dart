@@ -72,7 +72,7 @@ Widget wallpapersList({
                         height: double.infinity,
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: Colors.white24,
+                          color: Color(int.parse('0xFF${wallpaper.avgColor?.substring(1)}')),
                           borderRadius: BorderRadius.circular(18),
                         ),
                         child: ClipRRect(

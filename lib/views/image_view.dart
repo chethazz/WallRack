@@ -84,16 +84,21 @@ class _ImageViewState extends State<ImageView> {
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              padding: const EdgeInsets.only(left: 5),
-                              width: MediaQuery.of(context).size.width / 1.4,
-                              child: Text(
-                                'By ${widget.photographer}',
-                                style: const TextStyle(
-                                    color: Colors.white, fontSize: 26),
-                                maxLines: 1,
+                            Column(children: [
+                              Container(
+                                padding: const EdgeInsets.only(left: 5, top: 10, bottom: 10),
+                                width: MediaQuery.of(context).size.width / 1.4,
+                                decoration: BoxDecoration(
+                                    // color: Colors.white24,
+                                    borderRadius: BorderRadius.circular(18)),
+                                child: Text(
+                                  'By ${widget.photographer}',
+                                  style: const TextStyle(
+                                      color: Colors.white, fontSize: 26),
+                                  maxLines: 1,
+                                ),
                               ),
-                            ),
+                            ]),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.white,
@@ -438,6 +443,7 @@ class _ImageViewState extends State<ImageView> {
                       ),
                     ),
                   ]),
+
                 ),
               ),
             ),
