@@ -1,4 +1,6 @@
 import 'dart:typed_data';
+import 'dart:ui';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -46,11 +48,26 @@ class _ImageViewState extends State<ImageView> {
             SizedBox(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
-              child: Image.network(
-                widget.imgUrl,
-                fit: BoxFit.cover,
+              child: FutureBuilder(
+                future: Future.delayed(const Duration(milliseconds: 500)),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    return CachedNetworkImage(
+                      imageUrl: widget.originalUrl,
+                      fit: BoxFit.cover,
+                      fadeInDuration: const Duration(seconds: 0),
+                      placeholder: (context, url) => Image.network(widget.imgUrl, fit: BoxFit.cover),
+                    );
+                  } else {
+                    return Image.network(
+                      widget.imgUrl,
+                      fit: BoxFit.cover,
+                    );
+                  }
+                },
               ),
             ),
+
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
@@ -432,7 +449,6 @@ class _ImageViewState extends State<ImageView> {
                     ),
                   ),
                 ]),
-
               ),
             ),
             _downloading
