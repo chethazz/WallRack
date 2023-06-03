@@ -56,18 +56,22 @@ class _ImageViewState extends State<ImageView> {
                       imageUrl: widget.originalUrl,
                       fit: BoxFit.cover,
                       fadeInDuration: const Duration(seconds: 0),
-                      placeholder: (context, url) => Image.network(widget.imgUrl, fit: BoxFit.cover),
+                      placeholder: (context, url) => CachedNetworkImage(
+                        imageUrl: widget.imgUrl,
+                        fit: BoxFit.cover,
+                        fadeInDuration: const Duration(seconds: 0),
+                      ),
                     );
                   } else {
-                    return Image.network(
-                      widget.imgUrl,
+                    return CachedNetworkImage(
+                      imageUrl: widget.imgUrl,
                       fit: BoxFit.cover,
+                      fadeInDuration: const Duration(seconds: 0),
                     );
                   }
                 },
               ),
             ),
-
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
@@ -92,7 +96,8 @@ class _ImageViewState extends State<ImageView> {
                         children: [
                           Column(children: [
                             Container(
-                              padding: const EdgeInsets.only(left: 5, top: 10, bottom: 10),
+                              padding: const EdgeInsets.only(
+                                  left: 5, top: 10, bottom: 10),
                               width: MediaQuery.of(context).size.width / 1.4,
                               decoration: BoxDecoration(
                                   // color: Colors.white24,
@@ -114,8 +119,7 @@ class _ImageViewState extends State<ImageView> {
                               ),
                             ),
                             onPressed: () async {
-                              final Uri url =
-                                  Uri.parse(widget.photographerUrl);
+                              final Uri url = Uri.parse(widget.photographerUrl);
                               await launchUrl(
                                 url,
                                 mode: LaunchMode.externalApplication,
@@ -146,8 +150,7 @@ class _ImageViewState extends State<ImageView> {
                                 builder: (BuildContext context) {
                                   final AnimationController controller =
                                       AnimationController(
-                                    duration:
-                                        const Duration(milliseconds: 300),
+                                    duration: const Duration(milliseconds: 300),
                                     vsync: Navigator.of(context),
                                   );
                                   final Animation<Offset> slideAnimation =
@@ -164,12 +167,10 @@ class _ImageViewState extends State<ImageView> {
                                   return SlideTransition(
                                     position: slideAnimation,
                                     child: AlertDialog(
-                                      contentPadding:
-                                          const EdgeInsets.all(16),
+                                      contentPadding: const EdgeInsets.all(16),
                                       backgroundColor: Colors.black,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(15),
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       content: Column(
                                         mainAxisSize: MainAxisSize.min,
@@ -182,21 +183,17 @@ class _ImageViewState extends State<ImageView> {
                                             height: 40,
                                             child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
-                                                  foregroundColor: Colors
-                                                      .white,
+                                                  foregroundColor: Colors.white,
                                                   backgroundColor:
                                                       Colors.white24,
-                                                  shape:
-                                                      RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10))),
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10))),
                                               onPressed: () {
                                                 Future.delayed(
                                                     const Duration(
-                                                        milliseconds: 150),
-                                                    () {
+                                                        milliseconds: 150), () {
                                                   _setLockScreen();
                                                   Navigator.of(context).pop();
                                                 });
@@ -213,9 +210,8 @@ class _ImageViewState extends State<ImageView> {
                                             ),
                                           ),
                                           Container(
-                                            margin:
-                                                const EdgeInsets.symmetric(
-                                                    vertical: 10),
+                                            margin: const EdgeInsets.symmetric(
+                                                vertical: 10),
                                             width: MediaQuery.of(context)
                                                     .size
                                                     .width /
@@ -223,21 +219,17 @@ class _ImageViewState extends State<ImageView> {
                                             height: 40,
                                             child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
-                                                  foregroundColor: Colors
-                                                      .white,
+                                                  foregroundColor: Colors.white,
                                                   backgroundColor:
                                                       Colors.white24,
-                                                  shape:
-                                                      RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10))),
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10))),
                                               onPressed: () {
                                                 Future.delayed(
                                                     const Duration(
-                                                        milliseconds: 150),
-                                                    () {
+                                                        milliseconds: 150), () {
                                                   _setHomeScreen();
                                                   Navigator.of(context).pop();
                                                 });
@@ -261,21 +253,17 @@ class _ImageViewState extends State<ImageView> {
                                             height: 40,
                                             child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
-                                                  foregroundColor: Colors
-                                                      .white,
+                                                  foregroundColor: Colors.white,
                                                   backgroundColor:
                                                       Colors.white24,
-                                                  shape:
-                                                      RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10))),
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10))),
                                               onPressed: () {
                                                 Future.delayed(
                                                     const Duration(
-                                                        milliseconds: 150),
-                                                    () {
+                                                        milliseconds: 150), () {
                                                   _setBoth();
                                                   Navigator.of(context).pop();
                                                 });
@@ -300,8 +288,8 @@ class _ImageViewState extends State<ImageView> {
                             },
                             child: const Text(
                               'Set as wallpaper',
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: 12),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 12),
                             ),
                           ),
                         ),
@@ -320,8 +308,7 @@ class _ImageViewState extends State<ImageView> {
                                 builder: (BuildContext context) {
                                   final AnimationController controller =
                                       AnimationController(
-                                    duration:
-                                        const Duration(milliseconds: 300),
+                                    duration: const Duration(milliseconds: 300),
                                     vsync: Navigator.of(context),
                                   );
                                   final Animation<Offset> slideAnimation =
@@ -340,12 +327,10 @@ class _ImageViewState extends State<ImageView> {
                                   return SlideTransition(
                                     position: slideAnimation,
                                     child: AlertDialog(
-                                      contentPadding:
-                                          const EdgeInsets.all(16),
+                                      contentPadding: const EdgeInsets.all(16),
                                       backgroundColor: Colors.black,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(15),
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
                                       content: Column(
                                         mainAxisSize: MainAxisSize.min,
@@ -358,21 +343,17 @@ class _ImageViewState extends State<ImageView> {
                                             height: 40,
                                             child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
-                                                  foregroundColor: Colors
-                                                      .white,
+                                                  foregroundColor: Colors.white,
                                                   backgroundColor:
                                                       Colors.white24,
-                                                  shape:
-                                                      RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10))),
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10))),
                                               onPressed: () {
                                                 Future.delayed(
                                                     const Duration(
-                                                        milliseconds: 150),
-                                                    () {
+                                                        milliseconds: 150), () {
                                                   _saveOriginal();
                                                   Navigator.of(context).pop();
                                                 });
@@ -399,21 +380,17 @@ class _ImageViewState extends State<ImageView> {
                                             height: 40,
                                             child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
-                                                  foregroundColor: Colors
-                                                      .white,
+                                                  foregroundColor: Colors.white,
                                                   backgroundColor:
                                                       Colors.white24,
-                                                  shape:
-                                                      RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10))),
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10))),
                                               onPressed: () {
                                                 Future.delayed(
                                                     const Duration(
-                                                        milliseconds: 150),
-                                                    () {
+                                                        milliseconds: 150), () {
                                                   _save();
                                                   Navigator.of(context).pop();
                                                 });

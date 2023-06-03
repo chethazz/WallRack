@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'category_image.dart';
 
@@ -75,10 +76,12 @@ class MoreCategoryTile extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                child: Image.network(imgUrl,
+                child: CachedNetworkImage(imageUrl: imgUrl,
                 height: MediaQuery.of(context).size.height/3,
                 width: MediaQuery.of(context).size.width,
-                fit: BoxFit.cover,),
+                fit: BoxFit.cover,
+                fadeInDuration: const Duration(milliseconds: 300),
+                ),
               ),
               Container(
                 color: const Color.fromRGBO(0, 0, 0, 0.2),

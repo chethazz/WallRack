@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:regwalls/model/wallpaper_mode.dart';
@@ -75,9 +76,10 @@ Widget wallpapersList({
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(18),
-                        child: Image.network(
-                          wallpaper.src!.portrait,
+                        child: CachedNetworkImage(
+                          imageUrl: wallpaper.src!.portrait,
                           fit: BoxFit.cover,
+                          fadeInDuration: const Duration(milliseconds: 300),
                         ),
                       ),
                     ),
