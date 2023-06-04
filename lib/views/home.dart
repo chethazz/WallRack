@@ -23,6 +23,7 @@ class _HomeState extends State<Home> {
   List<WallpaperModel> wallpapers = [];
   TextEditingController searchController = TextEditingController();
   int _currentIndex = 0;
+  final PageController _pageController = PageController(initialPage: 0);
 
   getTrendingWallpapers() async {
     var response = await http.get(
@@ -78,9 +79,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-
     // Create an empty column to be shown when the category icon is tapped
-    Widget emptyColumn = Column(
+    Widget collections = Column(
       children: [
         Expanded(
           child: Container(
@@ -88,7 +88,8 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: ScrollConfiguration(
               behavior: const ScrollBehavior(
-                  androidOverscrollIndicator: AndroidOverscrollIndicator.stretch),
+                  androidOverscrollIndicator:
+                      AndroidOverscrollIndicator.stretch),
               child: GridView.builder(
                 shrinkWrap: true,
                 controller: _scrollController,
@@ -100,7 +101,8 @@ class _HomeState extends State<Home> {
                 ),
                 itemBuilder: (context, index) {
                   return MoreCategoryTile(
-                    title: categories[index].categoryName, imgUrl: categories[index].imgUrl,
+                    title: categories[index].categoryName,
+                    imgUrl: categories[index].imgUrl,
                   );
                 },
               ),
@@ -111,7 +113,7 @@ class _HomeState extends State<Home> {
     );
 
     // Build the existing body column
-    Widget existingBodyColumn = Column(
+    Widget curated = Column(
       children: <Widget>[
         Container(
           decoration: BoxDecoration(
@@ -213,27 +215,39 @@ class _HomeState extends State<Home> {
         title: brandName(),
         elevation: 0.0,
       ),
-      body: _currentIndex == 0 ? existingBodyColumn : emptyColumn,
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        children: [
+          curated,
+          collections,
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.black,
-        showSelectedLabels: false,
+        showSelectedLabels: true,
         showUnselectedLabels: false,
+        selectedItemColor: Colors.white,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.white),
-            label: "Home",
+            icon: Icon(Icons.home_max, color: Colors.white),
+            label: "curated",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.category, color: Colors.white),
-            label: "Category",
+            icon: Icon(Icons.category_rounded, color: Colors.white),
+            label: "collections",
           ),
         ],
         onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
+          _pageController.animateToPage(index,
+              duration: const Duration(milliseconds: 250),
+              curve: Curves.easeInOut);
         },
       ),
     );
