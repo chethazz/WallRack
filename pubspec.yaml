@@ -43,6 +43,7 @@ dependencies:
   cool_alert: ^2.0.1
   shared_preferences: ^2.1.1
   url_launcher: ^6.1.11
+  swipeable_page_route: ^0.4.0
 
 
 

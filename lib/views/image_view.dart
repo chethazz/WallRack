@@ -103,7 +103,7 @@ class _ImageViewState extends State<ImageView> {
                   alignment: Alignment.bottomCenter,
                   child: Column(children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.only(left: 18, right: 21),
                       alignment: Alignment.centerLeft,
                       height: 60,
                       child: Row(
@@ -113,7 +113,7 @@ class _ImageViewState extends State<ImageView> {
                               Container(
                                 padding: const EdgeInsets.only(
                                     left: 5, top: 10, bottom: 10),
-                                width: MediaQuery.of(context).size.width / 1.4,
+                                width: MediaQuery.of(context).size.width / 1.41,
                                 decoration: BoxDecoration(
                                     // color: Colors.white24,
                                     borderRadius: BorderRadius.circular(18)),

@@ -7,6 +7,7 @@ import 'package:regwalls/model/wallpaper_mode.dart';
 import 'package:regwalls/views/search.dart';
 import 'package:regwalls/widget/widget.dart';
 import 'package:http/http.dart' as http;
+import 'package:swipeable_page_route/swipeable_page_route.dart';
 import 'category_tile.dart';
 
 class Home extends StatefulWidget {
@@ -142,7 +143,7 @@ class _HomeState extends State<Home> {
                         }
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
+                          SwipeablePageRoute(
                             builder: (context) => Search(
                               searchQuery: searchController.text,
                             ),

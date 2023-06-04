@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:swipeable_page_route/swipeable_page_route.dart';
 import 'category_image.dart';
 
 class CategoryTile extends StatelessWidget {
@@ -28,9 +29,11 @@ class CategoryTile extends StatelessWidget {
           Future.delayed(const Duration(milliseconds: 150), () {
             Navigator.push(
                 context,
-                CupertinoPageRoute(
+                SwipeablePageRoute(
                     builder: (context) =>
-                        CategoryImage(categoryName: title.toLowerCase())));
+                        CategoryImage(categoryName: title.toLowerCase())
+                ),
+            );
           });
         },
         child: Container(
@@ -66,7 +69,7 @@ class MoreCategoryTile extends StatelessWidget {
           Future.delayed(const Duration(milliseconds: 0), () {
             Navigator.push(
                 context,
-                CupertinoPageRoute(
+                SwipeablePageRoute(
                     builder: (context) =>
                         CategoryImage(categoryName: title.toLowerCase())));
           });
