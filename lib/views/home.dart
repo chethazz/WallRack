@@ -236,12 +236,12 @@ class _HomeState extends State<Home> {
         selectedItemColor: Colors.white,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_max, color: Colors.white),
-            label: "curated",
+            icon: Icon(Icons.home_max_rounded, color: Colors.white),
+            label: "Curated",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.category_rounded, color: Colors.white),
-            label: "collections",
+            label: "Collections",
           ),
         ],
         onTap: (index) {
