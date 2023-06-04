@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'category_image.dart';
 
@@ -17,9 +18,9 @@ class CategoryTile extends StatelessWidget {
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.white24,
           padding: const EdgeInsets.symmetric(vertical: 10),
-          primary: Colors.white24,
-          onPrimary: Colors.white,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         ),
@@ -27,7 +28,7 @@ class CategoryTile extends StatelessWidget {
           Future.delayed(const Duration(milliseconds: 150), () {
             Navigator.push(
                 context,
-                MaterialPageRoute(
+                CupertinoPageRoute(
                     builder: (context) =>
                         CategoryImage(categoryName: title.toLowerCase())));
           });
@@ -47,11 +48,11 @@ class CategoryTile extends StatelessWidget {
   }
 }
 
-
 class MoreCategoryTile extends StatelessWidget {
   final String title, imgUrl;
 
-  const MoreCategoryTile({super.key, required this.title, required this.imgUrl});
+  const MoreCategoryTile(
+      {super.key, required this.title, required this.imgUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +66,7 @@ class MoreCategoryTile extends StatelessWidget {
           Future.delayed(const Duration(milliseconds: 0), () {
             Navigator.push(
                 context,
-                MaterialPageRoute(
+                CupertinoPageRoute(
                     builder: (context) =>
                         CategoryImage(categoryName: title.toLowerCase())));
           });
@@ -76,11 +77,12 @@ class MoreCategoryTile extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                child: CachedNetworkImage(imageUrl: imgUrl,
-                height: MediaQuery.of(context).size.height/3,
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.cover,
-                fadeInDuration: const Duration(milliseconds: 300),
+                child: CachedNetworkImage(
+                  imageUrl: imgUrl,
+                  height: MediaQuery.of(context).size.height / 3,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
+                  fadeInDuration: const Duration(milliseconds: 300),
                 ),
               ),
               Container(
@@ -91,7 +93,9 @@ class MoreCategoryTile extends StatelessWidget {
                 child: Text(
                   title,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.w500, fontSize: 28),
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 28),
                 ),
               ),
             ],
