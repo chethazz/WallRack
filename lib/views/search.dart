@@ -5,6 +5,7 @@ import 'package:regwalls/model/wallpaper_mode.dart';
 import 'package:regwalls/widget/widget.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
+import 'package:swipeable_page_route/swipeable_page_route.dart';
 
 class Search extends StatefulWidget {
   final String searchQuery;
@@ -134,6 +135,20 @@ class _SearchState extends State<Search> {
                             ),
                           ),
                         ),
+                        textInputAction: TextInputAction.search,
+                        onSubmitted: (value) {
+                          if (kDebugMode) {
+                            print("Search $value");
+                          }
+                          Navigator.push(
+                            context,
+                            SwipeablePageRoute(
+                              builder: (context) => Search(
+                                searchQuery: searchController.text,
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ],

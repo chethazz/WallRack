@@ -156,6 +156,20 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
+                  textInputAction: TextInputAction.search,
+                  onSubmitted: (value) {
+                    if (kDebugMode) {
+                      print("Search $value");
+                    }
+                    Navigator.push(
+                      context,
+                      SwipeablePageRoute(
+                        builder: (context) => Search(
+                          searchQuery: searchController.text,
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
