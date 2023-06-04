@@ -26,7 +26,7 @@ class CategoryTile extends StatelessWidget {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         ),
         onPressed: () {
-          Future.delayed(const Duration(milliseconds: 150), () {
+          Future.delayed(const Duration(milliseconds: 100), () {
             Navigator.push(
                 context,
                 SwipeablePageRoute(
@@ -66,7 +66,7 @@ class MoreCategoryTile extends StatelessWidget {
       ),
       child: GestureDetector(
         onTap: () {
-          Future.delayed(const Duration(milliseconds: 0), () {
+          Future.delayed(const Duration(milliseconds: 100), () {
             Navigator.push(
                 context,
                 SwipeablePageRoute(

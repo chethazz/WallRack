@@ -95,7 +95,7 @@ Widget wallpapersList({
                           )),
                       child: Container(),
                       onPressed: () {
-                        Future.delayed(const Duration(milliseconds: 150), () {
+                        Future.delayed(const Duration(milliseconds: 100), () {
                           Navigator.push(
                             context,
                             SwipeablePageRoute(
