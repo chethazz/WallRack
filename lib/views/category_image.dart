@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:regwalls/data/data.dart';
-import 'package:regwalls/model/wallpaper_mode.dart';
+import 'package:regwalls/model/wallpaper_model.dart';
 import 'package:regwalls/widget/widget.dart';
 
 class CategoryImage extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:regwalls/data/data.dart';
-import 'package:regwalls/model/wallpaper_mode.dart';
+import 'package:regwalls/model/wallpaper_model.dart';
 import 'package:regwalls/widget/widget.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
