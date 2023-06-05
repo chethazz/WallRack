@@ -73,7 +73,6 @@ class _CategoryImageState extends State<CategoryImage> {
   void _scrollListener() {
     if (_scrollController.position.pixels ==
         _scrollController.position.maxScrollExtent) {
-      // User has scrolled to the end of the list, fetch more wallpapers
       fetchMoreCategoryWallpapers(widget.categoryName);
     }
   }
@@ -94,7 +93,8 @@ class _CategoryImageState extends State<CategoryImage> {
           title: Container(
               alignment: Alignment.bottomCenter,
               child: Text(
-                widget.categoryName.substring(0, 1).toUpperCase() + widget.categoryName.substring(1),
+                widget.categoryName.substring(0, 1).toUpperCase() +
+                    widget.categoryName.substring(1),
                 style: const TextStyle(color: Colors.white, fontSize: 28),
               )),
           elevation: 0.0),

@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:dio/dio.dart';
@@ -591,7 +589,10 @@ class _ImageViewState extends State<ImageView> {
 
       if (result['isSuccess'] == true) {
         SnackBar snackBar = const SnackBar(
-          content: Text("Image Saved", style: TextStyle(color: Colors.black),),
+          content: Text(
+            "Image Saved",
+            style: TextStyle(color: Colors.black),
+          ),
           backgroundColor: Colors.white,
         );
 

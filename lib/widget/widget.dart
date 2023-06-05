@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:regwalls/model/wallpaper_model.dart';
@@ -60,7 +59,6 @@ Widget wallpapersList({
           ),
           itemBuilder: (context, index) {
             if (index == wallpapers.length - 1) {
-              // We have reached the end of the current list, display a loading indicator
               return const Center(
                 child: CircularProgressIndicator(),
               );
@@ -73,7 +71,8 @@ Widget wallpapersList({
                       height: double.infinity,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: Color(int.parse('0xFF${wallpaper.avgColor?.substring(1)}')),
+                        color: Color(int.parse(
+                            '0xFF${wallpaper.avgColor?.substring(1)}')),
                         borderRadius: BorderRadius.circular(18),
                       ),
                       child: ClipRRect(

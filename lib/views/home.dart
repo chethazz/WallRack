@@ -79,7 +79,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    // Create an empty column to be shown when the category icon is tapped
     Widget collections = Column(
       children: [
         Expanded(
@@ -113,99 +112,104 @@ class _HomeState extends State<Home> {
     );
 
     // Build the existing body column
-    Widget curated = Column(
-      children: <Widget>[
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          padding: const EdgeInsets.symmetric(
-            horizontal: 12,
-          ),
-          margin: const EdgeInsets.symmetric(
-            horizontal: 20,
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: TextField(
-                  controller: searchController,
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'Search',
-                    hintStyle: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                    ),
-                    suffixIcon: GestureDetector(
-                      onTap: () {
-                        if (kDebugMode) {
-                          print("Search ${searchController.text}");
-                        }
-                        Navigator.push(
-                          context,
-                          SwipeablePageRoute(
-                            builder: (context) => Search(
-                              searchQuery: searchController.text,
-                            ),
-                          ),
-                        );
-                      },
-                      child: const Icon(
-                        Icons.search,
+    Widget curated = ScrollConfiguration(
+      behavior: const ScrollBehavior(
+          androidOverscrollIndicator: AndroidOverscrollIndicator.stretch),
+      child: Column(
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 12,
+            ),
+            margin: const EdgeInsets.symmetric(
+              horizontal: 20,
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: searchController,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Search',
+                      hintStyle: const TextStyle(
                         color: Colors.black,
+                        fontSize: 14,
                       ),
-                    ),
-                  ),
-                  textInputAction: TextInputAction.search,
-                  onSubmitted: (value) {
-                    if (kDebugMode) {
-                      print("Search $value");
-                    }
-                    Navigator.push(
-                      context,
-                      SwipeablePageRoute(
-                        builder: (context) => Search(
-                          searchQuery: searchController.text,
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          if (kDebugMode) {
+                            print("Search ${searchController.text}");
+                          }
+                          Navigator.push(
+                            context,
+                            SwipeablePageRoute(
+                              builder: (context) => Search(
+                                searchQuery: searchController.text,
+                              ),
+                            ),
+                          );
+                        },
+                        child: const Icon(
+                          Icons.search,
+                          color: Colors.black,
                         ),
                       ),
-                    );
-                  },
+                    ),
+                    textInputAction: TextInputAction.search,
+                    onSubmitted: (value) {
+                      if (kDebugMode) {
+                        print("Search $value");
+                      }
+                      Navigator.push(
+                        context,
+                        SwipeablePageRoute(
+                          builder: (context) => Search(
+                            searchQuery: searchController.text,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(
-          height: 16,
-        ),
-        SizedBox(
-          height: 45,
-          child: ScrollConfiguration(
-            behavior: const ScrollBehavior(
-                androidOverscrollIndicator: AndroidOverscrollIndicator.stretch),
-            child: ListView.builder(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20,
-              ),
-              itemCount: 5,
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return CategoryTile(
-                  title: categories[index].categoryName,
-                );
-              },
+              ],
             ),
           ),
-        ),
-        wallpapersList(
-          wallpapers: wallpapers,
-          context: context,
-          scrollController: _scrollController,
-        )
-      ],
+          const SizedBox(
+            height: 16,
+          ),
+          SizedBox(
+            height: 45,
+            child: ScrollConfiguration(
+              behavior: const ScrollBehavior(
+                  androidOverscrollIndicator:
+                      AndroidOverscrollIndicator.stretch),
+              child: ListView.builder(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                ),
+                itemCount: 5,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return CategoryTile(
+                    title: categories[index].categoryName,
+                  );
+                },
+              ),
+            ),
+          ),
+          wallpapersList(
+            wallpapers: wallpapers,
+            context: context,
+            scrollController: _scrollController,
+          )
+        ],
+      ),
     );
 
     return Scaffold(

@@ -4,14 +4,15 @@ class WallpaperModel {
   String? photographerUrl;
   String? avgColor;
 
-  WallpaperModel({this.src, this.photographer, this.photographerUrl, this.avgColor});
+  WallpaperModel(
+      {this.src, this.photographer, this.photographerUrl, this.avgColor});
 
   factory WallpaperModel.fromMap(Map<String, dynamic> jsonData) {
     return WallpaperModel(
-        src: SrcModel.fromMap(jsonData["src"]),
-        photographerUrl: jsonData["photographer_url"],
-        photographer: jsonData["photographer"],
-        avgColor: jsonData["avg_color"],
+      src: SrcModel.fromMap(jsonData["src"]),
+      photographerUrl: jsonData["photographer_url"],
+      photographer: jsonData["photographer"],
+      avgColor: jsonData["avg_color"],
     );
   }
 }

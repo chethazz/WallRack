@@ -65,7 +65,7 @@ class _OnBoardState extends State<OnBoard> {
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: Container(
-                      height: MediaQuery.of(context).size.height/2.5,
+                      height: MediaQuery.of(context).size.height / 2.5,
                       decoration: const BoxDecoration(
                         gradient: LinearGradient(
                           colors: [Colors.black, Colors.transparent],
@@ -77,31 +77,30 @@ class _OnBoardState extends State<OnBoard> {
                       child: Container(
                         alignment: Alignment.bottomCenter,
                         width: MediaQuery.of(context).size.width,
-                        padding: const EdgeInsets.only(left: 12, right: 12, bottom: 18),
+                        padding: const EdgeInsets.only(
+                            left: 12, right: 12, bottom: 18),
                         margin: const EdgeInsets.only(
                             left: 16, right: 16, bottom: 100),
                         height: MediaQuery.of(context).size.height / 10,
                         child: const Text(
                           'Your wallpaper defines your personality....'
                           '\nAre you ready to define yourself?',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white
-                          ),
+                          style: TextStyle(fontSize: 16, color: Colors.white),
                         ),
                       ),
                     ),
                   ),
                   Container(
                     color: Colors.transparent,
-                    margin: EdgeInsets.only(bottom: 20),
+                    margin: const EdgeInsets.only(bottom: 20),
                     padding: const EdgeInsets.all(16),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          primary: const Color.fromRGBO(100, 100, 100, 0.4),
-                        onPrimary: Colors.white,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18))
-                      ),
+                          foregroundColor: Colors.white,
+                          backgroundColor:
+                              const Color.fromRGBO(100, 100, 100, 0.4),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18))),
                       onPressed: () {
                         Future.delayed(const Duration(milliseconds: 150), () {
                           Navigator.pushReplacement(
@@ -117,7 +116,10 @@ class _OnBoardState extends State<OnBoard> {
                         width: MediaQuery.of(context).size.width,
                         padding: const EdgeInsets.all(12),
                         height: 50,
-                        child: const Text('Move on', style: TextStyle(color: Colors.white),),
+                        child: const Text(
+                          'Move on',
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
