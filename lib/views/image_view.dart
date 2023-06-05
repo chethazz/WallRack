@@ -549,7 +549,7 @@ class _ImageViewState extends State<ImageView> {
           await ImageGallerySaver.saveImage(Uint8List.fromList(response.data));
 
       setState(() {
-        _downloading = true;
+        _downloading = false;
       });
 
       if (result['isSuccess'] == true) {
@@ -563,10 +563,6 @@ class _ImageViewState extends State<ImageView> {
 
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
-      }
-
-      if (mounted) {
-        Navigator.pop(context);
       }
     }
   }
@@ -595,16 +591,12 @@ class _ImageViewState extends State<ImageView> {
 
       if (result['isSuccess'] == true) {
         SnackBar snackBar = const SnackBar(
-          content: Text("Image Saved"),
-          backgroundColor: Colors.green,
+          content: Text("Image Saved", style: TextStyle(color: Colors.black),),
+          backgroundColor: Colors.white,
         );
 
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
-      }
-
-      if (mounted) {
-        Navigator.pop(context);
       }
     }
   }
