@@ -94,7 +94,7 @@ class _SearchState extends State<Search> {
       appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Colors.black,
-          title: brandName(),
+          title: brandName(context),
           elevation: 0.0),
       body: Container(
         color: Colors.black,

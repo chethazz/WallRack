@@ -119,7 +119,8 @@ class _HomeState extends State<Home> {
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Theme.of(context).brightness ==
+                  Brightness.dark ? Colors.white : Colors.black12,
               borderRadius: BorderRadius.circular(20),
             ),
             padding: const EdgeInsets.symmetric(
@@ -213,10 +214,12 @@ class _HomeState extends State<Home> {
     );
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Theme.of(context).brightness ==
+          Brightness.dark ? Colors.black : Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: brandName(),
+        backgroundColor: Theme.of(context).brightness ==
+            Brightness.dark ? Colors.black : Colors.white,
+        title: brandName(context),
         elevation: 0.0,
       ),
       body: PageView(
@@ -234,17 +237,21 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.black,
+        backgroundColor: Theme.of(context).brightness ==
+            Brightness.dark ? Colors.black : Colors.white,
         showSelectedLabels: true,
         showUnselectedLabels: false,
-        selectedItemColor: Colors.white,
-        items: const [
+        selectedItemColor:Theme.of(context).brightness ==
+            Brightness.dark ? Colors.white : Colors.black,
+        items:  [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_max_rounded, color: Colors.white),
+            icon: Icon(Icons.home_max_rounded, color: Theme.of(context).brightness ==
+                Brightness.dark ? Colors.white : Colors.black),
             label: "Curated",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.category_rounded, color: Colors.white),
+            icon: Icon(Icons.category_rounded, color: Theme.of(context).brightness ==
+                Brightness.dark ? Colors.white : Colors.black),
             label: "Collections",
           ),
         ],

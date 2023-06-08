@@ -6,25 +6,41 @@ import 'package:regwalls/widget/onboard.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const WallRack());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class WallRack extends StatelessWidget {
+  const WallRack({super.key});
+
+  void setSystemNavBarColor(Color color) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        systemNavigationBarColor: color,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.black,
     ));
+    if (MediaQuery.of(context).platformBrightness == Brightness.dark) {
+      setSystemNavBarColor(Colors.black);
+    } else {
+      setSystemNavBarColor(Colors.white);
+    }
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'WallRack',
+      themeMode: ThemeMode.system,
       theme: ThemeData(
         useMaterial3: true,
-        primaryColor: Colors.white,
+        primaryColor: Colors.black,
         textTheme: GoogleFonts.poppinsTextTheme(),
+        brightness: MediaQuery.of(context).platformBrightness == Brightness.dark
+            ? Brightness.dark
+            : Brightness.light,
       ),
       home: FutureBuilder<SharedPreferences>(
         future: SharedPreferences.getInstance(),

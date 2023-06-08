@@ -5,7 +5,7 @@ import 'package:regwalls/model/wallpaper_model.dart';
 import 'package:regwalls/views/image_view.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
 
-Widget brandName() {
+Widget brandName(BuildContext context) {
   return Center(
     child: RichText(
       text: TextSpan(
@@ -14,14 +14,15 @@ Widget brandName() {
           fontWeight: FontWeight.w600,
           fontFamily: GoogleFonts.ubuntu().fontFamily,
         ),
-        children: const <TextSpan>[
+        children: <TextSpan>[
           TextSpan(
             text: 'Wall',
             style: TextStyle(
-              color: Colors.white,
+              color: Theme.of(context).brightness ==
+                  Brightness.dark ? Colors.white : Colors.black,
             ),
           ),
-          TextSpan(
+          const TextSpan(
             text: 'Rack',
             style: TextStyle(
               color: Colors.grey,

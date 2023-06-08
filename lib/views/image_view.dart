@@ -89,9 +89,10 @@ class _ImageViewState extends State<ImageView> {
                 alignment: Alignment.bottomCenter,
                 child: Container(
                   padding: const EdgeInsets.only(top: 15),
-                  decoration: const BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).brightness ==
+                      Brightness.dark ? Colors.black : Colors.white,
+                    borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(20),
                       topLeft: Radius.circular(20),
                     ),
@@ -117,16 +118,20 @@ class _ImageViewState extends State<ImageView> {
                                     borderRadius: BorderRadius.circular(18)),
                                 child: Text(
                                   'By ${widget.photographer}',
-                                  style: const TextStyle(
-                                      color: Colors.white, fontSize: 26),
+                                  style: TextStyle(
+                                      color: Theme.of(context).brightness ==
+                                      Brightness.dark ? Colors.white : Colors.black, fontSize: 26),
                                   maxLines: 1,
                                 ),
                               ),
                             ]),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                foregroundColor: Colors.black,
+                                foregroundColor: Theme.of(context).brightness ==
+                                    Brightness.dark ? Colors.black : Colors.white,
+                                backgroundColor:
+                                Theme.of(context).brightness ==
+                                    Brightness.dark ? Colors.white : Colors.black,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15),
                                 ),
@@ -154,8 +159,11 @@ class _ImageViewState extends State<ImageView> {
                             height: 42,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                  foregroundColor: Colors.white,
-                                  backgroundColor: Colors.white24,
+                                  foregroundColor: Theme.of(context).brightness ==
+                                      Brightness.dark ? Colors.black : Colors.white,
+                                  backgroundColor:
+                                  Theme.of(context).brightness ==
+                                      Brightness.dark ? Colors.white24 : Colors.black38,
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(15))),
                               onPressed: () {
@@ -184,7 +192,8 @@ class _ImageViewState extends State<ImageView> {
                                       child: AlertDialog(
                                         contentPadding:
                                             const EdgeInsets.all(16),
-                                        backgroundColor: Colors.black,
+                                        backgroundColor: Theme.of(context).brightness ==
+                                            Brightness.dark ? Colors.black : Colors.white,
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(15),
@@ -200,10 +209,11 @@ class _ImageViewState extends State<ImageView> {
                                               height: 40,
                                               child: ElevatedButton(
                                                 style: ElevatedButton.styleFrom(
-                                                    foregroundColor: Colors
-                                                        .white,
+                                                    foregroundColor: Theme.of(context).brightness ==
+                                                        Brightness.dark ? Colors.black : Colors.white,
                                                     backgroundColor:
-                                                        Colors.white24,
+                                                    Theme.of(context).brightness ==
+                                                        Brightness.dark ? Colors.white24 : Colors.black38,
                                                     shape:
                                                         RoundedRectangleBorder(
                                                             borderRadius:
@@ -241,10 +251,11 @@ class _ImageViewState extends State<ImageView> {
                                               height: 40,
                                               child: ElevatedButton(
                                                 style: ElevatedButton.styleFrom(
-                                                    foregroundColor: Colors
-                                                        .white,
+                                                    foregroundColor: Theme.of(context).brightness ==
+                                                        Brightness.dark ? Colors.black : Colors.white,
                                                     backgroundColor:
-                                                        Colors.white24,
+                                                    Theme.of(context).brightness ==
+                                                        Brightness.dark ? Colors.white24 : Colors.black38,
                                                     shape:
                                                         RoundedRectangleBorder(
                                                             borderRadius:
@@ -279,10 +290,11 @@ class _ImageViewState extends State<ImageView> {
                                               height: 40,
                                               child: ElevatedButton(
                                                 style: ElevatedButton.styleFrom(
-                                                    foregroundColor: Colors
-                                                        .white,
+                                                    foregroundColor: Theme.of(context).brightness ==
+                                                        Brightness.dark ? Colors.black : Colors.white,
                                                     backgroundColor:
-                                                        Colors.white24,
+                                                    Theme.of(context).brightness ==
+                                                        Brightness.dark ? Colors.white24 : Colors.black38,
                                                     shape:
                                                         RoundedRectangleBorder(
                                                             borderRadius:
@@ -328,8 +340,11 @@ class _ImageViewState extends State<ImageView> {
                             height: 42,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                  foregroundColor: Colors.white,
-                                  backgroundColor: Colors.white24,
+                                  foregroundColor: Theme.of(context).brightness ==
+                                      Brightness.dark ? Colors.black : Colors.white,
+                                  backgroundColor:
+                                  Theme.of(context).brightness ==
+                                      Brightness.dark ? Colors.white24 : Colors.black38,
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(15))),
                               onPressed: () {
@@ -360,7 +375,8 @@ class _ImageViewState extends State<ImageView> {
                                       child: AlertDialog(
                                         contentPadding:
                                             const EdgeInsets.all(16),
-                                        backgroundColor: Colors.black,
+                                        backgroundColor: Theme.of(context).brightness ==
+                                          Brightness.dark ? Colors.black : Colors.white,
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(15),
@@ -376,10 +392,11 @@ class _ImageViewState extends State<ImageView> {
                                               height: 40,
                                               child: ElevatedButton(
                                                 style: ElevatedButton.styleFrom(
-                                                    foregroundColor: Colors
-                                                        .white,
+                                                    foregroundColor: Theme.of(context).brightness ==
+                                                        Brightness.dark ? Colors.black : Colors.white,
                                                     backgroundColor:
-                                                        Colors.white24,
+                                                    Theme.of(context).brightness ==
+                                                        Brightness.dark ? Colors.white24 : Colors.black38,
                                                     shape:
                                                         RoundedRectangleBorder(
                                                             borderRadius:
@@ -417,10 +434,11 @@ class _ImageViewState extends State<ImageView> {
                                               height: 40,
                                               child: ElevatedButton(
                                                 style: ElevatedButton.styleFrom(
-                                                    foregroundColor: Colors
-                                                        .white,
+                                                    foregroundColor: Theme.of(context).brightness ==
+                                                        Brightness.dark ? Colors.black : Colors.white,
                                                     backgroundColor:
-                                                        Colors.white24,
+                                                    Theme.of(context).brightness ==
+                                                        Brightness.dark ? Colors.white24 : Colors.black38,
                                                     shape:
                                                         RoundedRectangleBorder(
                                                             borderRadius:

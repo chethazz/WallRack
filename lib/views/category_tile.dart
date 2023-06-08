@@ -18,8 +18,11 @@ class CategoryTile extends StatelessWidget {
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.white,
-          backgroundColor: Colors.white24,
+          foregroundColor: Theme.of(context).brightness ==
+              Brightness.dark ? Colors.black : Colors.white,
+          backgroundColor:
+          Theme.of(context).brightness ==
+              Brightness.dark ? Colors.white24 : Colors.black38,
           padding: const EdgeInsets.symmetric(vertical: 10),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -88,7 +91,10 @@ class MoreCategoryTile extends StatelessWidget {
                 ),
               ),
               Container(
-                color: const Color.fromRGBO(0, 0, 0, 0.2),
+                decoration: BoxDecoration(
+                  color: const Color.fromRGBO(0, 0, 0, 0.2),
+                  borderRadius: BorderRadius.circular(15)
+                ),
               ),
               Align(
                 alignment: Alignment.center,
