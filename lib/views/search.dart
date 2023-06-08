@@ -93,18 +93,21 @@ class _SearchState extends State<Search> {
     return Scaffold(
       appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.black,
+          backgroundColor: Theme.of(context).brightness ==
+              Brightness.dark ? Colors.black : Colors.white,
           title: brandName(context),
           elevation: 0.0),
       body: Container(
-        color: Colors.black,
+        color: Theme.of(context).brightness ==
+            Brightness.dark ? Colors.black : Colors.white,
         child: Column(
           children: [
             SingleChildScrollView(
               child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15)),
+                    color: Theme.of(context).brightness ==
+                        Brightness.dark ? Colors.white : Colors.black12,
+                    borderRadius: BorderRadius.circular(18)),
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 margin: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
