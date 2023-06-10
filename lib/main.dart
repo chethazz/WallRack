@@ -25,38 +25,43 @@ class WallRack extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
     ));
-    if (MediaQuery.of(context).platformBrightness == Brightness.dark) {
-      setSystemNavBarColor(Colors.black);
-    } else {
-      setSystemNavBarColor(Colors.white);
-    }
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'WallRack',
-      themeMode: ThemeMode.system,
-      theme: ThemeData(
-        useMaterial3: true,
-        primaryColor: Colors.black,
-        textTheme: GoogleFonts.poppinsTextTheme(),
-        brightness: MediaQuery.of(context).platformBrightness == Brightness.dark
-            ? Brightness.dark
-            : Brightness.light,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.light.copyWith(
+        systemNavigationBarColor: MediaQuery.of(context).platformBrightness == Brightness.dark
+            ? Colors.black
+            : Colors.white,
+        systemNavigationBarIconBrightness: MediaQuery.of(context).platformBrightness == Brightness.dark
+            ? Brightness.light
+            : Brightness.dark,
       ),
-      home: FutureBuilder<SharedPreferences>(
-        future: SharedPreferences.getInstance(),
-        builder:
-            (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
-          if (snapshot.hasData) {
-            SharedPreferences? prefs = snapshot.data;
-            bool isFirstRun = prefs?.getBool('isFirstRun') ?? false;
-            if (!isFirstRun) {
-              prefs?.setBool('isFirstRun', true);
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'WallRack',
+        themeMode: ThemeMode.system,
+        theme: ThemeData(
+          useMaterial3: true,
+          primaryColor: Colors.black,
+          textTheme: GoogleFonts.poppinsTextTheme(),
+          brightness: MediaQuery.of(context).platformBrightness == Brightness.dark
+              ? Brightness.dark
+              : Brightness.light,
+        ),
+        home: FutureBuilder<SharedPreferences>(
+          future: SharedPreferences.getInstance(),
+          builder:
+              (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
+            if (snapshot.hasData) {
+              SharedPreferences? prefs = snapshot.data;
+              bool isFirstRun = prefs?.getBool('isFirstRun') ?? false;
+              if (!isFirstRun) {
+                prefs?.setBool('isFirstRun', true);
+              }
+              return isFirstRun ? const Home() : const OnBoard();
+            } else {
+              return const CircularProgressIndicator();
             }
-            return isFirstRun ? const Home() : const OnBoard();
-          } else {
-            return const CircularProgressIndicator();
-          }
-        },
+          },
+        ),
       ),
     );
   }
