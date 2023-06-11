@@ -119,8 +119,9 @@ class _HomeState extends State<Home> {
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-              color: Theme.of(context).brightness ==
-                  Brightness.dark ? Colors.white : Colors.black12,
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.black12,
               borderRadius: BorderRadius.circular(20),
             ),
             padding: const EdgeInsets.symmetric(
@@ -214,11 +215,13 @@ class _HomeState extends State<Home> {
     );
 
     return Scaffold(
-      backgroundColor: Theme.of(context).brightness ==
-          Brightness.dark ? Colors.black : Colors.white,
+      backgroundColor: Theme.of(context).brightness == Brightness.dark
+          ? Colors.black
+          : Colors.white,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).brightness ==
-            Brightness.dark ? Colors.black : Colors.white,
+        backgroundColor: Theme.of(context).brightness == Brightness.dark
+            ? Colors.black
+            : Colors.white,
         title: brandName(context),
         elevation: 0.0,
       ),
@@ -237,21 +240,27 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Theme.of(context).brightness ==
-            Brightness.dark ? Colors.black : Colors.white,
+        backgroundColor: Theme.of(context).brightness == Brightness.dark
+            ? Colors.black
+            : Colors.white,
         showSelectedLabels: true,
         showUnselectedLabels: false,
-        selectedItemColor:Theme.of(context).brightness ==
-            Brightness.dark ? Colors.white : Colors.black,
-        items:  [
+        selectedItemColor: Theme.of(context).brightness == Brightness.dark
+            ? Colors.white
+            : Colors.black,
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_max_rounded, color: Theme.of(context).brightness ==
-                Brightness.dark ? Colors.white : Colors.black),
+            icon: Icon(Icons.home_max_rounded,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Colors.black),
             label: "Curated",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.category_rounded, color: Theme.of(context).brightness ==
-                Brightness.dark ? Colors.white : Colors.black),
+            icon: Icon(Icons.category_rounded,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Colors.black),
             label: "Collections",
           ),
         ],

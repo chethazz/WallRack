@@ -88,23 +88,28 @@ class _CategoryImageState extends State<CategoryImage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          automaticallyImplyLeading: false,
-          backgroundColor: Theme.of(context).brightness ==
-              Brightness.dark ? Colors.black : Colors.white,
-          title: Container(
-              alignment: Alignment.bottomCenter,
-              child: Text(
-                widget.categoryName.substring(0, 1).toUpperCase() +
-                    widget.categoryName.substring(1),
-                style: TextStyle(color: Theme.of(context).brightness ==
-                    Brightness.dark ? Colors.white : Colors.black, fontSize: 28),
-              )),
-          elevation: 0.0,
+        automaticallyImplyLeading: false,
+        backgroundColor: Theme.of(context).brightness == Brightness.dark
+            ? Colors.black
+            : Colors.white,
+        title: Container(
+            alignment: Alignment.bottomCenter,
+            child: Text(
+              widget.categoryName.substring(0, 1).toUpperCase() +
+                  widget.categoryName.substring(1),
+              style: TextStyle(
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.black,
+                  fontSize: 28),
+            )),
+        elevation: 0.0,
         scrolledUnderElevation: 0,
       ),
       body: Container(
-        color: Theme.of(context).brightness ==
-            Brightness.dark ? Colors.black : Colors.white,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? Colors.black
+            : Colors.white,
         child: Column(
           children: [
             SingleChildScrollView(

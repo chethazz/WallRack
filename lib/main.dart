@@ -27,12 +27,14 @@ class WallRack extends StatelessWidget {
     ));
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light.copyWith(
-        systemNavigationBarColor: MediaQuery.of(context).platformBrightness == Brightness.dark
-            ? Colors.black
-            : Colors.white,
-        systemNavigationBarIconBrightness: MediaQuery.of(context).platformBrightness == Brightness.dark
-            ? Brightness.light
-            : Brightness.dark,
+        systemNavigationBarColor:
+            MediaQuery.of(context).platformBrightness == Brightness.dark
+                ? Colors.black
+                : Colors.white,
+        systemNavigationBarIconBrightness:
+            MediaQuery.of(context).platformBrightness == Brightness.dark
+                ? Brightness.light
+                : Brightness.dark,
       ),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -42,14 +44,15 @@ class WallRack extends StatelessWidget {
           useMaterial3: true,
           primaryColor: Colors.black,
           textTheme: GoogleFonts.poppinsTextTheme(),
-          brightness: MediaQuery.of(context).platformBrightness == Brightness.dark
-              ? Brightness.dark
-              : Brightness.light,
+          brightness:
+              MediaQuery.of(context).platformBrightness == Brightness.dark
+                  ? Brightness.dark
+                  : Brightness.light,
         ),
         home: FutureBuilder<SharedPreferences>(
           future: SharedPreferences.getInstance(),
-          builder:
-              (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
+          builder: (BuildContext context,
+              AsyncSnapshot<SharedPreferences> snapshot) {
             if (snapshot.hasData) {
               SharedPreferences? prefs = snapshot.data;
               bool isFirstRun = prefs?.getBool('isFirstRun') ?? false;

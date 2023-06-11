@@ -18,8 +18,9 @@ Widget brandName(BuildContext context) {
           TextSpan(
             text: 'Wall',
             style: TextStyle(
-              color: Theme.of(context).brightness ==
-                  Brightness.dark ? Colors.white : Colors.black,
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.black,
             ),
           ),
           const TextSpan(

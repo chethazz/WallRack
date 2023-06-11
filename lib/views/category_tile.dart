@@ -18,11 +18,12 @@ class CategoryTile extends StatelessWidget {
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          foregroundColor: Theme.of(context).brightness ==
-              Brightness.dark ? Colors.black : Colors.white,
-          backgroundColor:
-          Theme.of(context).brightness ==
-              Brightness.dark ? Colors.white24 : Colors.black38,
+          foregroundColor: Theme.of(context).brightness == Brightness.dark
+              ? Colors.black
+              : Colors.white,
+          backgroundColor: Theme.of(context).brightness == Brightness.dark
+              ? Colors.white24
+              : Colors.black38,
           padding: const EdgeInsets.symmetric(vertical: 10),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -30,11 +31,10 @@ class CategoryTile extends StatelessWidget {
         onPressed: () {
           Future.delayed(const Duration(milliseconds: 100), () {
             Navigator.push(
-                context,
-                SwipeablePageRoute(
-                    builder: (context) =>
-                        CategoryImage(categoryName: title.toLowerCase())
-                ),
+              context,
+              SwipeablePageRoute(
+                  builder: (context) =>
+                      CategoryImage(categoryName: title.toLowerCase())),
             );
           });
         },
@@ -92,9 +92,8 @@ class MoreCategoryTile extends StatelessWidget {
               ),
               Container(
                 decoration: BoxDecoration(
-                  color: const Color.fromRGBO(0, 0, 0, 0.2),
-                  borderRadius: BorderRadius.circular(15)
-                ),
+                    color: const Color.fromRGBO(0, 0, 0, 0.2),
+                    borderRadius: BorderRadius.circular(15)),
               ),
               Align(
                 alignment: Alignment.center,
