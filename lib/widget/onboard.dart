@@ -9,7 +9,9 @@ class OnBoard extends StatefulWidget {
   State<OnBoard> createState() => _OnBoardState();
 }
 
+
 class _OnBoardState extends State<OnBoard> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,9 +68,15 @@ class _OnBoardState extends State<OnBoard> {
                     alignment: Alignment.bottomCenter,
                     child: Container(
                       height: MediaQuery.of(context).size.height / 2.5,
-                      decoration: const BoxDecoration(
-                        gradient: LinearGradient(
+                      decoration: BoxDecoration(
+                        gradient: Theme.of(context).brightness ==
+                            Brightness.dark ? const LinearGradient(
                           colors: [Colors.black, Colors.transparent],
+                          stops: [0.2, 0.8],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                        ) : const LinearGradient(
+                          colors: [Colors.white70, Colors.transparent],
                           stops: [0.2, 0.8],
                           begin: Alignment.bottomCenter,
                           end: Alignment.topCenter,
