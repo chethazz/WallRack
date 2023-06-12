@@ -97,7 +97,9 @@ class _SearchState extends State<Search> {
               ? Colors.black
               : Colors.white,
           title: brandName(context),
-          elevation: 0.0),
+          elevation: 0.0,
+          scrolledUnderElevation: 0,
+      ),
       body: Container(
         color: Theme.of(context).brightness == Brightness.dark
             ? Colors.black
