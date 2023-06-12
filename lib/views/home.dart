@@ -181,35 +181,6 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          const SizedBox(
-            height: 16,
-          ),
-          SizedBox(
-            height: 45,
-            child: ScrollConfiguration(
-              behavior: const ScrollBehavior(
-                  androidOverscrollIndicator:
-                      AndroidOverscrollIndicator.stretch),
-              child: ListView.builder(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                ),
-                itemCount: 5,
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return CategoryTile(
-                    title: categories[index].categoryName,
-                  );
-                },
-              ),
-            ),
-          ),
-          wallpapersList(
-            wallpapers: wallpapers,
-            context: context,
-            scrollController: _scrollController,
-          )
         ],
       ),
     );
