@@ -1,4 +1,4 @@
-# RegWalls
+# WallRack
 
 A Flutter wallpaper app using Pexels API
 

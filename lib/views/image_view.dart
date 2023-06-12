@@ -98,12 +98,12 @@ class _ImageViewState extends State<ImageView> {
                       topLeft: Radius.circular(20),
                     ),
                   ),
-                  height: MediaQuery.of(context).size.height / 5.3,
+                  height: MediaQuery.of(context).size.height / 5.4,
                   width: MediaQuery.of(context).size.width,
                   alignment: Alignment.bottomCenter,
                   child: Column(children: [
                     Container(
-                      padding: const EdgeInsets.only(left: 18, right: 21),
+                      padding: const EdgeInsets.only(left: 18, right: 21, top: 12),
                       alignment: Alignment.centerLeft,
                       height: 60,
                       child: Row(
@@ -112,7 +112,8 @@ class _ImageViewState extends State<ImageView> {
                             Column(children: [
                               Container(
                                 padding: const EdgeInsets.only(
-                                    left: 5, top: 10, bottom: 10),
+                                    left: 5),
+                                alignment: Alignment.centerLeft,
                                 width: MediaQuery.of(context).size.width / 1.41,
                                 decoration: BoxDecoration(
                                     // color: Colors.white24,
@@ -120,11 +121,13 @@ class _ImageViewState extends State<ImageView> {
                                 child: Text(
                                   'By ${widget.photographer}',
                                   style: TextStyle(
-                                      color: Theme.of(context).brightness ==
-                                              Brightness.dark
-                                          ? Colors.white
-                                          : Colors.black,
-                                      fontSize: 26),
+                                    color: Theme.of(context).brightness ==
+                                            Brightness.dark
+                                        ? Colors.white
+                                        : Colors.black,
+                                    fontSize: 26,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                   maxLines: 1,
                                 ),
                               ),
@@ -550,7 +553,7 @@ class _ImageViewState extends State<ImageView> {
                 ? Container(
                     alignment: Alignment.bottomCenter,
                     child: const LinearProgressIndicator(
-                      backgroundColor: Colors.black,
+                      backgroundColor: Colors.white,
                       color: Colors.white,
                     ),
                   )
