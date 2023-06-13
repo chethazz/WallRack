@@ -486,7 +486,7 @@ class _ImageViewState extends State<ImageView> {
                                 );
                               },
                               child: const Text(
-                                'Set as wallpaper',
+                                'Download',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 12),
                               ),
