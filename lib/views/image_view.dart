@@ -103,21 +103,18 @@ class _ImageViewState extends State<ImageView> {
                   alignment: Alignment.bottomCenter,
                   child: Column(children: [
                     Container(
-                      padding: const EdgeInsets.only(left: 18, right: 21, top: 12),
+                      padding: const EdgeInsets.only(left: 18, right: 21),
                       alignment: Alignment.centerLeft,
                       height: 60,
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Column(children: [
+                            Column(
+                                children: [
                               Container(
-                                padding: const EdgeInsets.only(
-                                    left: 5),
+                                margin: const EdgeInsets.only(left: 5, top: 12),
                                 alignment: Alignment.centerLeft,
-                                width: MediaQuery.of(context).size.width / 1.41,
-                                decoration: BoxDecoration(
-                                    // color: Colors.white24,
-                                    borderRadius: BorderRadius.circular(18)),
+                                width: MediaQuery.of(context).size.width / 1.45,
                                 child: Text(
                                   'By ${widget.photographer}',
                                   style: TextStyle(
