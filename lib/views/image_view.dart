@@ -109,8 +109,7 @@ class _ImageViewState extends State<ImageView> {
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Column(
-                                children: [
+                            Column(children: [
                               Container(
                                 margin: const EdgeInsets.only(left: 5, top: 12),
                                 alignment: Alignment.centerLeft,
@@ -179,186 +178,163 @@ class _ImageViewState extends State<ImageView> {
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(15))),
                               onPressed: () {
-                                showDialog(
+                                showModalBottomSheet(
                                   context: context,
                                   builder: (BuildContext context) {
-                                    final AnimationController controller =
-                                        AnimationController(
-                                      duration:
-                                          const Duration(milliseconds: 300),
-                                      vsync: Navigator.of(context),
-                                    );
-                                    final Animation<Offset> slideAnimation =
-                                        Tween<Offset>(
-                                      begin: const Offset(-0.05, 0),
-                                      end: const Offset(0, 0),
-                                    ).animate(
-                                      CurvedAnimation(
-                                        parent: controller,
-                                        curve: Curves.fastOutSlowIn,
+                                    return Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(28),
+                                            topRight: Radius.circular(28)),
+                                        color: Theme.of(context).brightness ==
+                                                Brightness.dark
+                                            ? Colors.black
+                                            : Colors.white,
                                       ),
-                                    );
-                                    controller.forward();
-                                    return SlideTransition(
-                                      position: slideAnimation,
-                                      child: AlertDialog(
-                                        contentPadding:
-                                            const EdgeInsets.all(16),
-                                        backgroundColor:
-                                            Theme.of(context).brightness ==
-                                                    Brightness.dark
-                                                ? Colors.black
-                                                : Colors.white,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
-                                        ),
-                                        content: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            SizedBox(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  1.7,
-                                              height: 40,
-                                              child: ElevatedButton(
-                                                style: ElevatedButton.styleFrom(
-                                                    foregroundColor: Theme.of(
-                                                                    context)
-                                                                .brightness ==
-                                                            Brightness.dark
-                                                        ? Colors.black
-                                                        : Colors.white,
-                                                    backgroundColor: Theme.of(
-                                                                    context)
-                                                                .brightness ==
-                                                            Brightness.dark
-                                                        ? Colors.white24
-                                                        : Colors.black38,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10))),
-                                                onPressed: () {
-                                                  Future.delayed(
-                                                      const Duration(
-                                                          milliseconds: 150),
-                                                      () {
-                                                    _setLockScreen();
-                                                    Navigator.of(context).pop();
-                                                  });
-                                                },
-                                                child: const Align(
-                                                  alignment: Alignment.center,
-                                                  child: Text(
-                                                    'Lock screen',
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 12),
-                                                  ),
+                                      height:
+                                          MediaQuery.of(context).size.height /
+                                              4,
+                                      padding: const EdgeInsets.only(
+                                          left: 20,
+                                          right: 20,
+                                          top: 24,
+                                          bottom: 15),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                16,
+                                            child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  foregroundColor:
+                                                      Theme.of(context)
+                                                                  .brightness ==
+                                                              Brightness.dark
+                                                          ? Colors.black
+                                                          : Colors.white,
+                                                  backgroundColor:
+                                                      Theme.of(context)
+                                                                  .brightness ==
+                                                              Brightness.dark
+                                                          ? Colors.white24
+                                                          : Colors.black38,
+                                                  shape: const RoundedRectangleBorder(
+                                                      borderRadius: BorderRadius.only(
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  25),
+                                                          topLeft:
+                                                              Radius.circular(25),
+                                                          bottomLeft: Radius.circular(5),
+                                                          bottomRight: Radius.circular(5)))),
+                                              onPressed: () {
+                                                Future.delayed(
+                                                    const Duration(
+                                                        milliseconds: 150), () {
+                                                  _setLockScreen();
+                                                  Navigator.of(context).pop();
+                                                });
+                                              },
+                                              child: const Align(
+                                                alignment: Alignment.center,
+                                                child: Text(
+                                                  'Lock screen',
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12),
                                                 ),
                                               ),
                                             ),
-                                            Container(
-                                              margin:
-                                                  const EdgeInsets.symmetric(
-                                                      vertical: 10),
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  1.7,
-                                              height: 40,
-                                              child: ElevatedButton(
-                                                style: ElevatedButton.styleFrom(
-                                                    foregroundColor: Theme.of(
-                                                                    context)
-                                                                .brightness ==
-                                                            Brightness.dark
-                                                        ? Colors.black
-                                                        : Colors.white,
-                                                    backgroundColor: Theme.of(
-                                                                    context)
-                                                                .brightness ==
-                                                            Brightness.dark
-                                                        ? Colors.white24
-                                                        : Colors.black38,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10))),
-                                                onPressed: () {
-                                                  Future.delayed(
-                                                      const Duration(
-                                                          milliseconds: 150),
-                                                      () {
-                                                    _setHomeScreen();
-                                                    Navigator.of(context).pop();
-                                                  });
-                                                },
-                                                child: const Align(
-                                                  alignment: Alignment.center,
-                                                  child: Text(
-                                                    'Home screen',
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 12),
-                                                  ),
+                                          ),
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                16,
+                                            child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  foregroundColor:
+                                                      Theme.of(context)
+                                                                  .brightness ==
+                                                              Brightness.dark
+                                                          ? Colors.black
+                                                          : Colors.white,
+                                                  backgroundColor:
+                                                      Theme.of(context)
+                                                                  .brightness ==
+                                                              Brightness.dark
+                                                          ? Colors.white24
+                                                          : Colors.black38,
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10))),
+                                              onPressed: () {
+                                                Future.delayed(
+                                                    const Duration(
+                                                        milliseconds: 150), () {
+                                                  _setHomeScreen();
+                                                  Navigator.of(context).pop();
+                                                });
+                                              },
+                                              child: const Align(
+                                                alignment: Alignment.center,
+                                                child: Text(
+                                                  'Home screen',
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12),
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  1.7,
-                                              height: 40,
-                                              child: ElevatedButton(
-                                                style: ElevatedButton.styleFrom(
-                                                    foregroundColor: Theme.of(
-                                                                    context)
-                                                                .brightness ==
-                                                            Brightness.dark
-                                                        ? Colors.black
-                                                        : Colors.white,
-                                                    backgroundColor: Theme.of(
-                                                                    context)
-                                                                .brightness ==
-                                                            Brightness.dark
-                                                        ? Colors.white24
-                                                        : Colors.black38,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10))),
-                                                onPressed: () {
-                                                  Future.delayed(
-                                                      const Duration(
-                                                          milliseconds: 150),
-                                                      () {
-                                                    _setBoth();
-                                                    Navigator.of(context).pop();
-                                                  });
-                                                },
-                                                child: const Align(
-                                                  alignment: Alignment.center,
-                                                  child: Text(
-                                                    'Both',
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 12),
-                                                  ),
+                                          ),
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                16,
+                                            child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  foregroundColor:
+                                                      Theme.of(context)
+                                                                  .brightness ==
+                                                              Brightness.dark
+                                                          ? Colors.black
+                                                          : Colors.white,
+                                                  backgroundColor:
+                                                      Theme.of(context)
+                                                                  .brightness ==
+                                                              Brightness.dark
+                                                          ? Colors.white24
+                                                          : Colors.black38,
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10))),
+                                              onPressed: () {
+                                                Future.delayed(
+                                                    const Duration(
+                                                        milliseconds: 150), () {
+                                                  _setBoth();
+                                                  Navigator.of(context).pop();
+                                                });
+                                              },
+                                              child: const Align(
+                                                alignment: Alignment.center,
+                                                child: Text(
+                                                  'Both',
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12),
                                                 ),
                                               ),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                     );
                                   },
@@ -389,153 +365,130 @@ class _ImageViewState extends State<ImageView> {
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(15))),
                               onPressed: () {
-                                showDialog(
+                                showModalBottomSheet(
                                   context: context,
                                   builder: (BuildContext context) {
-                                    final AnimationController controller =
-                                        AnimationController(
-                                      duration:
-                                          const Duration(milliseconds: 300),
-                                      vsync: Navigator.of(context),
-                                    );
-                                    final Animation<Offset> slideAnimation =
-                                        Tween<Offset>(
-                                      begin: const Offset(-0.05, 0),
-                                      end: const Offset(0, 0),
-                                    ).animate(
-                                      CurvedAnimation(
-                                        parent: controller,
-                                        curve: Curves.fastOutSlowIn,
+                                    return Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(28),
+                                            topRight: Radius.circular(28)),
+                                        color: Theme.of(context).brightness ==
+                                                Brightness.dark
+                                            ? Colors.black
+                                            : Colors.white,
                                       ),
-                                    );
-
-                                    controller.forward();
-
-                                    return SlideTransition(
-                                      position: slideAnimation,
-                                      child: AlertDialog(
-                                        contentPadding:
-                                            const EdgeInsets.all(16),
-                                        backgroundColor:
-                                            Theme.of(context).brightness ==
-                                                    Brightness.dark
-                                                ? Colors.black
-                                                : Colors.white,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
-                                        ),
-                                        content: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            SizedBox(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  1.7,
-                                              height: 40,
-                                              child: ElevatedButton(
-                                                style: ElevatedButton.styleFrom(
-                                                    foregroundColor: Theme.of(
-                                                                    context)
-                                                                .brightness ==
-                                                            Brightness.dark
-                                                        ? Colors.black
-                                                        : Colors.white,
-                                                    backgroundColor: Theme.of(
-                                                                    context)
-                                                                .brightness ==
-                                                            Brightness.dark
-                                                        ? Colors.white24
-                                                        : Colors.black38,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10))),
-                                                onPressed: () {
-                                                  Future.delayed(
-                                                      const Duration(
-                                                          milliseconds: 150),
-                                                      () {
-                                                    _saveOriginal();
-                                                    Navigator.of(context).pop();
-                                                  });
-                                                },
-                                                child: const Align(
-                                                  alignment: Alignment.center,
-                                                  child: Text(
-                                                    'Original Quality',
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 12),
-                                                  ),
+                                      height:
+                                          MediaQuery.of(context).size.height /
+                                              5,
+                                      padding: const EdgeInsets.only(
+                                          left: 20,
+                                          right: 20,
+                                          top: 24,
+                                          bottom: 15),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                14,
+                                            child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  foregroundColor:
+                                                      Theme.of(context)
+                                                                  .brightness ==
+                                                              Brightness.dark
+                                                          ? Colors.black
+                                                          : Colors.white,
+                                                  backgroundColor:
+                                                      Theme.of(context)
+                                                                  .brightness ==
+                                                              Brightness.dark
+                                                          ? Colors.white24
+                                                          : Colors.black38,
+                                                  shape: const RoundedRectangleBorder(
+                                                      borderRadius: BorderRadius.only(
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  25),
+                                                          topLeft:
+                                                              Radius.circular(25),
+                                                          bottomLeft: Radius.circular(5),
+                                                          bottomRight: Radius.circular(5)))),
+                                              onPressed: () {
+                                                Future.delayed(
+                                                    const Duration(
+                                                        milliseconds: 150), () {
+                                                  _save();
+                                                  Navigator.pop(context);
+                                                });
+                                              },
+                                              child: const Align(
+                                                alignment: Alignment.center,
+                                                child: Text(
+                                                  'High Quality',
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12),
                                                 ),
                                               ),
                                             ),
-                                            const SizedBox(
-                                              height: 12,
-                                            ),
-                                            SizedBox(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  1.7,
-                                              height: 40,
-                                              child: ElevatedButton(
-                                                style: ElevatedButton.styleFrom(
-                                                    foregroundColor: Theme.of(
-                                                                    context)
-                                                                .brightness ==
-                                                            Brightness.dark
-                                                        ? Colors.black
-                                                        : Colors.white,
-                                                    backgroundColor: Theme.of(
-                                                                    context)
-                                                                .brightness ==
-                                                            Brightness.dark
-                                                        ? Colors.white24
-                                                        : Colors.black38,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10))),
-                                                onPressed: () {
-                                                  Future.delayed(
-                                                      const Duration(
-                                                          milliseconds: 150),
-                                                      () {
-                                                    _save();
-                                                    Navigator.of(context).pop();
-                                                  });
-                                                },
-                                                child: const Align(
-                                                  alignment: Alignment.center,
-                                                  child: Text(
-                                                    'High Quality',
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 12),
-                                                  ),
+                                          ),
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                14,
+                                            child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  foregroundColor:
+                                                      Theme.of(context)
+                                                                  .brightness ==
+                                                              Brightness.dark
+                                                          ? Colors.black
+                                                          : Colors.white,
+                                                  backgroundColor:
+                                                      Theme.of(context)
+                                                                  .brightness ==
+                                                              Brightness.dark
+                                                          ? Colors.white24
+                                                          : Colors.black38,
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10))),
+                                              onPressed: () {
+                                                Future.delayed(
+                                                    const Duration(
+                                                        milliseconds: 150), () {
+                                                  _saveOriginal();
+                                                  Navigator.pop(context);
+                                                });
+                                              },
+                                              child: const Align(
+                                                alignment: Alignment.center,
+                                                child: Text(
+                                                  'Original Quality',
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12),
                                                 ),
                                               ),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                     );
                                   },
                                 );
                               },
                               child: const Text(
-                                'Download',
+                                'Set as wallpaper',
                                 style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.white),
+                                    color: Colors.white, fontSize: 12),
                               ),
                             ),
                           ),
@@ -550,7 +503,7 @@ class _ImageViewState extends State<ImageView> {
                 ? Container(
                     alignment: Alignment.bottomCenter,
                     child: const LinearProgressIndicator(
-                      backgroundColor: Colors.white,
+                      backgroundColor: Colors.black,
                       color: Colors.white,
                     ),
                   )
