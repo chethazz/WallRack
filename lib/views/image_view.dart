@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -88,7 +89,7 @@ class _ImageViewState extends State<ImageView> {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  padding: const EdgeInsets.only(top: 15),
+                  padding: const EdgeInsets.only(top: 15, bottom: 10),
                   decoration: BoxDecoration(
                     color: Theme.of(context).brightness == Brightness.dark
                         ? Colors.black
@@ -98,7 +99,7 @@ class _ImageViewState extends State<ImageView> {
                       topLeft: Radius.circular(20),
                     ),
                   ),
-                  height: MediaQuery.of(context).size.height / 5.4,
+                  height: MediaQuery.of(context).size.height / 5,
                   width: MediaQuery.of(context).size.width,
                   alignment: Alignment.bottomCenter,
                   child: Column(children: [
@@ -193,11 +194,11 @@ class _ImageViewState extends State<ImageView> {
                                       ),
                                       height:
                                           MediaQuery.of(context).size.height /
-                                              4,
+                                              2.9,
                                       padding: const EdgeInsets.only(
                                           left: 20,
                                           right: 20,
-                                          top: 24,
+                                          top: 30,
                                           bottom: 15),
                                       child: Column(
                                         mainAxisAlignment:
@@ -207,7 +208,20 @@ class _ImageViewState extends State<ImageView> {
                                             height: MediaQuery.of(context)
                                                     .size
                                                     .height /
-                                                16,
+                                                18,
+                                            child: Text('Apply wallpaper to',
+                                                style: TextStyle(
+                                                    color: Theme.of(context)
+                                                                .brightness ==
+                                                            Brightness.dark
+                                                        ? Colors.white
+                                                        : Colors.black)),
+                                          ),
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                14,
                                             child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
                                                   foregroundColor:
@@ -229,8 +243,8 @@ class _ImageViewState extends State<ImageView> {
                                                                   25),
                                                           topLeft:
                                                               Radius.circular(25),
-                                                          bottomLeft: Radius.circular(5),
-                                                          bottomRight: Radius.circular(5)))),
+                                                          bottomLeft: Radius.circular(10),
+                                                          bottomRight: Radius.circular(10)))),
                                               onPressed: () {
                                                 Future.delayed(
                                                     const Duration(
@@ -254,7 +268,7 @@ class _ImageViewState extends State<ImageView> {
                                             height: MediaQuery.of(context)
                                                     .size
                                                     .height /
-                                                16,
+                                                14,
                                             child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
                                                   foregroundColor:
@@ -296,7 +310,7 @@ class _ImageViewState extends State<ImageView> {
                                             height: MediaQuery.of(context)
                                                     .size
                                                     .height /
-                                                16,
+                                                14,
                                             child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
                                                   foregroundColor:
@@ -311,10 +325,15 @@ class _ImageViewState extends State<ImageView> {
                                                               Brightness.dark
                                                           ? Colors.white24
                                                           : Colors.black38,
-                                                  shape: RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10))),
+                                                  shape: const RoundedRectangleBorder(
+                                                      borderRadius: BorderRadius.only(
+                                                          bottomLeft:
+                                                              Radius.circular(
+                                                                  24),
+                                                          bottomRight:
+                                                              Radius.circular(24),
+                                                          topLeft: Radius.circular(10),
+                                                          topRight: Radius.circular(10)))),
                                               onPressed: () {
                                                 Future.delayed(
                                                     const Duration(
@@ -380,16 +399,31 @@ class _ImageViewState extends State<ImageView> {
                                       ),
                                       height:
                                           MediaQuery.of(context).size.height /
-                                              5,
+                                              3.8,
                                       padding: const EdgeInsets.only(
                                           left: 20,
                                           right: 20,
-                                          top: 24,
+                                          top: 30,
                                           bottom: 15),
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                18,
+                                            child: Text(
+                                              'Choose quality',
+                                              style: TextStyle(
+                                                  color: Theme.of(context)
+                                                              .brightness ==
+                                                          Brightness.dark
+                                                      ? Colors.white
+                                                      : Colors.black),
+                                            ),
+                                          ),
                                           SizedBox(
                                             height: MediaQuery.of(context)
                                                     .size
@@ -416,8 +450,8 @@ class _ImageViewState extends State<ImageView> {
                                                                   25),
                                                           topLeft:
                                                               Radius.circular(25),
-                                                          bottomLeft: Radius.circular(5),
-                                                          bottomRight: Radius.circular(5)))),
+                                                          bottomLeft: Radius.circular(10),
+                                                          bottomRight: Radius.circular(10)))),
                                               onPressed: () {
                                                 Future.delayed(
                                                     const Duration(
@@ -456,10 +490,15 @@ class _ImageViewState extends State<ImageView> {
                                                               Brightness.dark
                                                           ? Colors.white24
                                                           : Colors.black38,
-                                                  shape: RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10))),
+                                                  shape: const RoundedRectangleBorder(
+                                                      borderRadius: BorderRadius.only(
+                                                          bottomLeft:
+                                                              Radius.circular(
+                                                                  24),
+                                                          bottomRight:
+                                                              Radius.circular(24),
+                                                          topLeft: Radius.circular(10),
+                                                          topRight: Radius.circular(10)))),
                                               onPressed: () {
                                                 Future.delayed(
                                                     const Duration(
@@ -523,7 +562,7 @@ class _ImageViewState extends State<ImageView> {
     var status = await Permission.photos.request();
     if (status.isGranted) {
       var file = await DefaultCacheManager().getSingleFile(imageUrl);
-      var result =await WallpaperManager.setWallpaperFromFile(
+      var result = await WallpaperManager.setWallpaperFromFile(
           file.path, WallpaperManager.LOCK_SCREEN);
 
       if (result) {
@@ -541,7 +580,6 @@ class _ImageViewState extends State<ImageView> {
       setState(() {
         _downloading = false;
       });
-
     } else {
       throw Exception('Permission denied');
     }
