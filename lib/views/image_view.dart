@@ -553,7 +553,7 @@ class _ImageViewState extends State<ImageView> {
     );
   }
 
-  _setLockScreen() async {
+  Future<void> _setLockScreen() async {
     setState(() {
       _downloading = true;
     });
@@ -585,7 +585,7 @@ class _ImageViewState extends State<ImageView> {
     }
   }
 
-  _setHomeScreen() async {
+  Future<void> _setHomeScreen() async {
     setState(() {
       _downloading = true;
     });
@@ -616,7 +616,7 @@ class _ImageViewState extends State<ImageView> {
     }
   }
 
-  _setBoth() async {
+  Future<void> _setBoth() async {
     setState(() {
       _downloading = true;
     });
