@@ -533,7 +533,6 @@ class _ImageViewState extends State<ImageView> {
           duration: Duration(seconds: 2),
         ),
       );
-      Navigator.pop(context);
     } else {
       throw Exception('Permission denied');
     }
@@ -561,7 +560,6 @@ class _ImageViewState extends State<ImageView> {
           duration: Duration(seconds: 2),
         ),
       );
-      Navigator.pop(context);
     } else {
       throw Exception('Permission denied');
     }
@@ -589,7 +587,6 @@ class _ImageViewState extends State<ImageView> {
           duration: Duration(seconds: 2),
         ),
       );
-      Navigator.pop(context);
     } else {
       throw Exception('Permission denied');
     }
