@@ -525,9 +525,21 @@ class _ImageViewState extends State<ImageView> {
       var file = await DefaultCacheManager().getSingleFile(imageUrl);
       await WallpaperManager.setWallpaperFromFile(
           file.path, WallpaperManager.LOCK_SCREEN);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Set successfully', style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
+          duration: Duration(seconds: 2),
+        ),
+      );
+      Navigator.pop(context);
     } else {
       throw Exception('Permission denied');
     }
+    setState(() {
+      _downloading = false;
+    });
   }
 
   _setHomeScreen() async {
@@ -541,9 +553,21 @@ class _ImageViewState extends State<ImageView> {
       var file = await DefaultCacheManager().getSingleFile(imageUrl);
       await WallpaperManager.setWallpaperFromFile(
           file.path, WallpaperManager.HOME_SCREEN);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Set successfully', style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+          duration: Duration(seconds: 2),
+        ),
+      );
+      Navigator.pop(context);
     } else {
       throw Exception('Permission denied');
     }
+    setState(() {
+      _downloading = false;
+    });
   }
 
   _setBoth() async {
@@ -557,9 +581,21 @@ class _ImageViewState extends State<ImageView> {
       var file = await DefaultCacheManager().getSingleFile(imageUrl);
       await WallpaperManager.setWallpaperFromFile(
           file.path, WallpaperManager.BOTH_SCREEN);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Set successfully', style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
+          duration: Duration(seconds: 2),
+        ),
+      );
+      Navigator.pop(context);
     } else {
       throw Exception('Permission denied');
     }
+    setState(() {
+      _downloading = false;
+    });
   }
 
   _save() async {
