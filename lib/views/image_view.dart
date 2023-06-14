@@ -523,8 +523,25 @@ class _ImageViewState extends State<ImageView> {
     var status = await Permission.photos.request();
     if (status.isGranted) {
       var file = await DefaultCacheManager().getSingleFile(imageUrl);
-      await WallpaperManager.setWallpaperFromFile(
+      var result =await WallpaperManager.setWallpaperFromFile(
           file.path, WallpaperManager.LOCK_SCREEN);
+
+      if (result) {
+        SnackBar snackBar = const SnackBar(
+          content: Text(
+            "Set Successfully",
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
+        );
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      }
+
+      setState(() {
+        _downloading = false;
+      });
+
     } else {
       throw Exception('Permission denied');
     }
@@ -539,8 +556,23 @@ class _ImageViewState extends State<ImageView> {
     var status = await Permission.photos.request();
     if (status.isGranted) {
       var file = await DefaultCacheManager().getSingleFile(imageUrl);
-      await WallpaperManager.setWallpaperFromFile(
+      var result = await WallpaperManager.setWallpaperFromFile(
           file.path, WallpaperManager.HOME_SCREEN);
+      if (result) {
+        SnackBar snackBar = const SnackBar(
+          content: Text(
+            "Set Successfully",
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
+        );
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      }
+
+      setState(() {
+        _downloading = false;
+      });
     } else {
       throw Exception('Permission denied');
     }
@@ -555,8 +587,23 @@ class _ImageViewState extends State<ImageView> {
     var status = await Permission.photos.request();
     if (status.isGranted) {
       var file = await DefaultCacheManager().getSingleFile(imageUrl);
-      await WallpaperManager.setWallpaperFromFile(
+      var result = await WallpaperManager.setWallpaperFromFile(
           file.path, WallpaperManager.BOTH_SCREEN);
+      if (result) {
+        SnackBar snackBar = const SnackBar(
+          content: Text(
+            "Set Successfully",
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
+        );
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      }
+
+      setState(() {
+        _downloading = false;
+      });
     } else {
       throw Exception('Permission denied');
     }
@@ -587,7 +634,6 @@ class _ImageViewState extends State<ImageView> {
           ),
           backgroundColor: Colors.white,
         );
-
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
