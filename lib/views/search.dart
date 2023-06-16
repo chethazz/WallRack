@@ -61,16 +61,16 @@ class _SearchState extends State<Search> {
     }
 
     Map<String, dynamic> jsonData = jsonDecode(response.body);
+    List<WallpaperModel> newWallpapers = [];
     jsonData["photos"].forEach((element) {
-      if (kDebugMode) {
-        print(element);
-      }
       WallpaperModel wallpaperModel = WallpaperModel();
       wallpaperModel = WallpaperModel.fromMap(element);
-      wallpapers.add(wallpaperModel);
+      newWallpapers.add(wallpaperModel);
     });
 
-    setState(() {});
+    setState(() {
+      wallpapers.addAll(newWallpapers);
+    });
   }
 
   void _scrollListener() {
