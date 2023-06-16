@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +7,7 @@ import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter_wallpaper_manager/flutter_wallpaper_manager.dart';
+import 'package:open_file_plus/open_file_plus.dart';
 
 class ImageView extends StatefulWidget {
   final String imgUrl;
@@ -194,7 +194,7 @@ class _ImageViewState extends State<ImageView> {
                                       ),
                                       height:
                                           MediaQuery.of(context).size.height /
-                                              2.9,
+                                              2.4,
                                       padding: const EdgeInsets.only(
                                           left: 20,
                                           right: 20,
@@ -325,15 +325,10 @@ class _ImageViewState extends State<ImageView> {
                                                               Brightness.dark
                                                           ? Colors.white24
                                                           : Colors.black38,
-                                                  shape: const RoundedRectangleBorder(
-                                                      borderRadius: BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  24),
-                                                          bottomRight:
-                                                              Radius.circular(24),
-                                                          topLeft: Radius.circular(10),
-                                                          topRight: Radius.circular(10)))),
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                      BorderRadius.circular(
+                                                          10))),
                                               onPressed: () {
                                                 Future.delayed(
                                                     const Duration(
@@ -348,6 +343,52 @@ class _ImageViewState extends State<ImageView> {
                                                   'Both',
                                                   style: TextStyle(
                                                       color: Colors.white,
+                                                      fontSize: 12),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                .size
+                                                .height /
+                                                14,
+                                            child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  foregroundColor:
+                                                  Theme.of(context)
+                                                      .brightness ==
+                                                      Brightness.dark
+                                                      ? Colors.black
+                                                      : Colors.white,
+                                                  backgroundColor:
+                                                  Theme.of(context)
+                                                      .brightness ==
+                                                      Brightness.dark
+                                                      ? Colors.white
+                                                      : Colors.black,
+                                                  shape: const RoundedRectangleBorder(
+                                                      borderRadius: BorderRadius.only(
+                                                          bottomLeft:
+                                                          Radius.circular(
+                                                              24),
+                                                          bottomRight:
+                                                          Radius.circular(24),
+                                                          topLeft: Radius.circular(10),
+                                                          topRight: Radius.circular(10)))),
+                                              onPressed: () {
+                                                Future.delayed(
+                                                    const Duration(
+                                                        milliseconds: 150), () {
+                                                  _shareWall();
+                                                });
+                                              },
+                                              child: Align(
+                                                alignment: Alignment.center,
+                                                child: Text(
+                                                  'Open with',
+                                                  style: TextStyle(
+                                                      color: Theme.of(context).brightness == Brightness.light ? Colors.white : Colors.black,
                                                       fontSize: 12),
                                                 ),
                                               ),
@@ -551,6 +592,29 @@ class _ImageViewState extends State<ImageView> {
         ),
       ),
     );
+  }
+
+
+  void _shareWall() async {
+    setState(() {
+      _downloading = true;
+    });
+
+    String imageUrl = widget.originalUrl;
+    var status = await Permission.photos.request();
+    if (status.isGranted) {
+      var file = await DefaultCacheManager().getSingleFile(imageUrl);
+
+      String path = file.path;
+
+      OpenFile.open(path);
+
+      setState(() {
+        _downloading = false;
+      });
+    } else {
+      throw Exception('Permission denied');
+    }
   }
 
   _setLockScreen() async {
