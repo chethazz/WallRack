@@ -617,7 +617,7 @@ class _ImageViewState extends State<ImageView> {
     }
   }
 
-  _setLockScreen() async {
+  Future<void> _setLockScreen() async {
     setState(() {
       _downloading = true;
     });
@@ -626,8 +626,10 @@ class _ImageViewState extends State<ImageView> {
     var status = await Permission.photos.request();
     if (status.isGranted) {
       var file = await DefaultCacheManager().getSingleFile(imageUrl);
-      var result = await WallpaperManager.setWallpaperFromFile(
-          file.path, WallpaperManager.LOCK_SCREEN);
+      String path = file.path;
+      int location = WallpaperManager.LOCK_SCREEN;
+      bool result = await WallpaperManager.setWallpaperFromFile(
+          path, location);
 
       if (result) {
         SnackBar snackBar = const SnackBar(
@@ -649,7 +651,7 @@ class _ImageViewState extends State<ImageView> {
     }
   }
 
-  _setHomeScreen() async {
+  Future<void> _setHomeScreen() async {
     setState(() {
       _downloading = true;
     });
@@ -658,8 +660,10 @@ class _ImageViewState extends State<ImageView> {
     var status = await Permission.photos.request();
     if (status.isGranted) {
       var file = await DefaultCacheManager().getSingleFile(imageUrl);
-      var result = await WallpaperManager.setWallpaperFromFile(
-          file.path, WallpaperManager.HOME_SCREEN);
+      String path = file.path;
+      int location = WallpaperManager.HOME_SCREEN;
+      bool result = await WallpaperManager.setWallpaperFromFile(
+          path, location);
       if (result) {
         SnackBar snackBar = const SnackBar(
           content: Text(
@@ -680,7 +684,7 @@ class _ImageViewState extends State<ImageView> {
     }
   }
 
-  _setBoth() async {
+  Future<void> _setBoth() async {
     setState(() {
       _downloading = true;
     });
@@ -689,8 +693,10 @@ class _ImageViewState extends State<ImageView> {
     var status = await Permission.photos.request();
     if (status.isGranted) {
       var file = await DefaultCacheManager().getSingleFile(imageUrl);
-      var result = await WallpaperManager.setWallpaperFromFile(
-          file.path, WallpaperManager.BOTH_SCREEN);
+      String path = file.path;
+      int location = WallpaperManager.BOTH_SCREEN;
+      bool result = await WallpaperManager.setWallpaperFromFile(
+          path, location);
       if (result) {
         SnackBar snackBar = const SnackBar(
           content: Text(
