@@ -380,6 +380,7 @@ class _ImageViewState extends State<ImageView> {
                                                 Future.delayed(
                                                     const Duration(
                                                         milliseconds: 150), () {
+                                                  Navigator.of(context).pop();
                                                   _shareWall();
                                                 });
                                               },
