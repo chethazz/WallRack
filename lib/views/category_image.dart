@@ -49,7 +49,7 @@ class _CategoryImageState extends State<CategoryImage> {
   void fetchMoreCategoryWallpapers(String query) async {
     var response = await http.get(
       Uri.parse(
-          'https://api.pexels.com/v1/search?query=$query&per_page=24&page=${wallpapers.length / 24 + 1}'),
+          'https://api.pexels.com/v1/search?query=$query&per_page=24&page=${wallpapers.length + 1}'),
       headers: {"Authorization": apiKey},
     );
 
