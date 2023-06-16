@@ -381,6 +381,7 @@ class _ImageViewState extends State<ImageView> {
                                                     const Duration(
                                                         milliseconds: 150), () {
                                                   _shareWall();
+                                                  Navigator.of(context).pop();
                                                 });
                                               },
                                               child: Align(
