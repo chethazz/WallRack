@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
 
   getTrendingWallpapers() async {
     var response = await http.get(
-      Uri.parse('https://api.pexels.com/v1/curated?per_page=20&page=1'),
+      Uri.parse('https://api.pexels.com/v1/curated?per_page=25&page=1'),
       headers: {"Authorization": apiKey},
     );
 
