@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:regwalls/model/wallpaper_model.dart';
 import 'package:regwalls/views/image_view.dart';
@@ -96,6 +97,7 @@ Widget wallpapersList({
                           )),
                       child: Container(),
                       onPressed: () {
+                        HapticFeedback.vibrate();
                         Future.delayed(const Duration(milliseconds: 100), () {
                           Navigator.push(
                             context,

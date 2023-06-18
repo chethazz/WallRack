@@ -47,11 +47,13 @@ class _ImageViewState extends State<ImageView> {
               onTapDown: (details) {
                 setState(() {
                   isPressed = true;
+                  HapticFeedback.vibrate();
                 });
               },
               onTapUp: (details) {
                 setState(() {
                   isPressed = false;
+                  HapticFeedback.vibrate();
                 });
               },
               child: SizedBox(
@@ -610,6 +612,8 @@ class _ImageViewState extends State<ImageView> {
 
       OpenFile.open(path);
 
+      HapticFeedback.vibrate();
+
       setState(() {
         _downloading = false;
       });
@@ -744,6 +748,7 @@ class _ImageViewState extends State<ImageView> {
           backgroundColor: Colors.white,
         );
         if (!mounted) return;
+        HapticFeedback.vibrate();
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
     }
@@ -781,6 +786,7 @@ class _ImageViewState extends State<ImageView> {
         );
 
         if (!mounted) return;
+        HapticFeedback.vibrate();
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
     }
