@@ -49,25 +49,21 @@ class _CategoryImageState extends State<CategoryImage> {
   void fetchMoreCategoryWallpapers(String query) async {
     var response = await http.get(
       Uri.parse(
-          'https://api.pexels.com/v1/search?query=$query&per_page=24&page=${wallpapers.length + 1}'),
+          'https://api.pexels.com/v1/search?query=$query&per_page=24&page=${(wallpapers.length + 1)/24}'),
       headers: {"Authorization": apiKey},
     );
 
-    if (kDebugMode) {
-      print(response.body.toString());
-    }
-
     Map<String, dynamic> jsonData = jsonDecode(response.body);
+    List<WallpaperModel> newWallpapers = [];
     jsonData["photos"].forEach((element) {
-      if (kDebugMode) {
-        print(element);
-      }
       WallpaperModel wallpaperModel = WallpaperModel();
       wallpaperModel = WallpaperModel.fromMap(element);
-      wallpapers.add(wallpaperModel);
+      newWallpapers.add(wallpaperModel);
     });
 
-    setState(() {});
+    setState(() {
+      wallpapers.addAll(newWallpapers);
+    });
   }
 
   void _scrollListener() {
