@@ -28,7 +28,7 @@ class _SearchState extends State<Search> {
   getSearchWallpapers(String query) async {
     var response = await http.get(
       Uri.parse(
-          'https://api.pexels.com/v1/search?query=$query&per_page=24&page=1'),
+          'https://api.pexels.com/v1/search?query=$query&per_page=26&page=1'),
       headers: {"Authorization": apiKey},
     );
 
@@ -53,7 +53,7 @@ class _SearchState extends State<Search> {
 
     var response = await http.get(
       Uri.parse(
-          'https://api.pexels.com/v1/search?query=$query&per_page=24&page=$currentPage'),
+          'https://api.pexels.com/v1/search?query=$query&per_page=26&page=$currentPage'),
       headers: {"Authorization": apiKey},
     );
 
