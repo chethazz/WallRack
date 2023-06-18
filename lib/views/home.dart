@@ -23,9 +23,11 @@ class _HomeState extends State<Home> {
   List<WallpaperModel> wallpapers = [];
   TextEditingController searchController = TextEditingController();
   int _currentIndex = 0;
+  int currentPage=1;
   final PageController _pageController = PageController(initialPage: 0);
 
   getTrendingWallpapers() async {
+
     var response = await http.get(
       Uri.parse('https://api.pexels.com/v1/curated?per_page=24&page=1'),
       headers: {"Authorization": apiKey},
@@ -38,33 +40,30 @@ class _HomeState extends State<Home> {
       wallpapers.add(wallpaperModel);
     });
 
-    setState(() {});
+
   }
 
   void fetchMoreWallpapers() async {
     var response = await http.get(
       Uri.parse(
-          'https://api.pexels.com/v1/curated?per_page=24&page=${wallpapers.length + 1}'),
+          'https://api.pexels.com/v1/curated?per_page=24&page=$currentPage'),
       headers: {"Authorization": apiKey},
     );
 
     Map<String, dynamic> jsonData = jsonDecode(response.body);
-    List<WallpaperModel> newWallpapers = [];
     jsonData["photos"].forEach((element) {
       WallpaperModel wallpaperModel = WallpaperModel();
       wallpaperModel = WallpaperModel.fromMap(element);
-      newWallpapers.add(wallpaperModel);
+      wallpapers.add(wallpaperModel);
     });
-
-    setState(() {
-      wallpapers.addAll(newWallpapers);
-    });
+    setState(() {});
   }
 
   void _scrollListener() {
     if (_scrollController.position.pixels ==
         _scrollController.position.maxScrollExtent) {
       // User has scrolled to the end of the list, fetch more wallpapers
+      currentPage++;
       fetchMoreWallpapers();
     }
   }

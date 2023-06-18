@@ -22,7 +22,7 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
   List<WallpaperModel> wallpapers = [];
   final ScrollController _scrollController = ScrollController();
-
+  int currentPage = 1;
   TextEditingController searchController = TextEditingController();
 
   getSearchWallpapers(String query) async {
@@ -50,9 +50,10 @@ class _SearchState extends State<Search> {
   }
 
   void fetchMoreSearchWallpapers(String query) async {
+
     var response = await http.get(
       Uri.parse(
-          'https://api.pexels.com/v1/search?query=$query&per_page=24&page=${wallpapers.length + 1}'),
+          'https://api.pexels.com/v1/search?query=$query&per_page=24&page=$currentPage'),
       headers: {"Authorization": apiKey},
     );
 
@@ -76,6 +77,7 @@ class _SearchState extends State<Search> {
   void _scrollListener() {
     if (_scrollController.position.pixels ==
         _scrollController.position.maxScrollExtent) {
+      currentPage++;
       fetchMoreSearchWallpapers(widget.searchQuery);
     }
   }
