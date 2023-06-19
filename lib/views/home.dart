@@ -23,11 +23,10 @@ class _HomeState extends State<Home> {
   List<WallpaperModel> wallpapers = [];
   TextEditingController searchController = TextEditingController();
   int _currentIndex = 0;
-  int currentPage=1;
+  int currentPage = 1;
   final PageController _pageController = PageController(initialPage: 0);
 
   getTrendingWallpapers() async {
-
     var response = await http.get(
       Uri.parse('https://api.pexels.com/v1/curated?per_page=26&page=1'),
       headers: {"Authorization": apiKey},
@@ -39,8 +38,7 @@ class _HomeState extends State<Home> {
       wallpaperModel = WallpaperModel.fromMap(element);
       wallpapers.add(wallpaperModel);
     });
-
-
+    setState(() {});
   }
 
   void fetchMoreWallpapers() async {
