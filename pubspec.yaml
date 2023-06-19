@@ -37,16 +37,12 @@ dependencies:
   dio: ^5.1.1
   cached_network_image: ^3.2.3
   google_fonts: ^4.0.3
-  flutter_launcher_icons: ^0.13.1
   flutter_wallpaper_manager: ^0.0.3
-  flutter_cache_manager: ^3.3.0
   cool_alert: ^2.0.1
   shared_preferences: ^2.1.1
   url_launcher: ^6.1.11
   swipeable_page_route: ^0.4.0
-  android_intent_plus: ^4.0.1
   open_file_plus: ^3.4.1
-
 
 
 
