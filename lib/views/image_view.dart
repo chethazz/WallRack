@@ -627,7 +627,7 @@ class _ImageViewState extends State<ImageView> {
       _downloading = true;
     });
 
-    String imageUrl = widget.originalUrl;
+    String imageUrl = widget.imgUrl;
     var status = await Permission.photos.request();
     if (status.isGranted) {
       var file = await DefaultCacheManager().getSingleFile(imageUrl);
@@ -661,7 +661,7 @@ class _ImageViewState extends State<ImageView> {
       _downloading = true;
     });
 
-    String imageUrl = widget.originalUrl;
+    String imageUrl = widget.imgUrl;
     var status = await Permission.photos.request();
     if (status.isGranted) {
       var file = await DefaultCacheManager().getSingleFile(imageUrl);
@@ -694,7 +694,7 @@ class _ImageViewState extends State<ImageView> {
       _downloading = true;
     });
 
-    String imageUrl = widget.originalUrl;
+    String imageUrl = widget.imgUrl;
     var status = await Permission.photos.request();
     if (status.isGranted) {
       var file = await DefaultCacheManager().getSingleFile(imageUrl);
