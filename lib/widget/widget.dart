@@ -107,6 +107,8 @@ Widget wallpapersList({
                                 originalUrl: wallpaper.src!.original,
                                 photographer: wallpaper.photographer!,
                                 photographerUrl: wallpaper.photographerUrl!,
+                                imageHeight: wallpaper.imageHeight!,
+                                imageWidth: wallpaper.imageWidth!,
                               ),
                             ),
                           );
