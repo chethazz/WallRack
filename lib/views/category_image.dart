@@ -123,7 +123,7 @@ class _CategoryImageState extends State<CategoryImage> {
                 margin: const EdgeInsets.symmetric(horizontal: 20),
               ),
             ),
-            wallpapersList(
+            WallpapersGrid(
                 wallpapers: wallpapers,
                 context: context,
                 scrollController: _scrollController),
