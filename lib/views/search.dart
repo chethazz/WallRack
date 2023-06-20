@@ -168,7 +168,7 @@ class _SearchState extends State<Search> {
             const SizedBox(
               height: 20,
             ),
-            wallpapersList(
+            WallpaperGrid(
                 wallpapers: wallpapers,
                 context: context,
                 scrollController: _scrollController),

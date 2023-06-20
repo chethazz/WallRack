@@ -202,7 +202,7 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
-          wallpapersList(
+          WallpaperGrid(
             wallpapers: wallpapers,
             context: context,
             scrollController: _scrollController,
