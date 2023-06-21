@@ -60,5 +60,11 @@ List<CategoriesModel> getCategories() {
       "https://images.pexels.com/photos/6766628/pexels-photo-6766628.jpeg?auto=compress&cs=tinysrgb&w=700&h=700&dpr=2";
   categoryModel = CategoriesModel();
 
+  categoryModel.categoryName = "Aesthetic";
+  categories.add(categoryModel);
+  categoryModel.imgUrl =
+  "https://images.pexels.com/photos/3910073/pexels-photo-3910073.jpeg?auto=compress&cs=tinysrgb&w=700&h=700&dpr=2";
+  categoryModel = CategoriesModel();
+
   return categories;
 }
