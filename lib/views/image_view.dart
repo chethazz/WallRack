@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -61,8 +62,14 @@ class _ImageViewState extends State<ImageView> {
                 });
               },
               child: SizedBox(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height,
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
                 child: FutureBuilder(
                   future: Future.delayed(const Duration(milliseconds: 500)),
                   builder: (context, snapshot) {
@@ -71,11 +78,12 @@ class _ImageViewState extends State<ImageView> {
                         imageUrl: widget.originalUrl,
                         fit: BoxFit.cover,
                         fadeInDuration: const Duration(seconds: 0),
-                        placeholder: (context, url) => CachedNetworkImage(
-                          imageUrl: widget.imgUrl,
-                          fit: BoxFit.cover,
-                          fadeInDuration: const Duration(seconds: 0),
-                        ),
+                        placeholder: (context, url) =>
+                            CachedNetworkImage(
+                              imageUrl: widget.imgUrl,
+                              fit: BoxFit.cover,
+                              fadeInDuration: const Duration(seconds: 0),
+                            ),
                       );
                     } else {
                       return CachedNetworkImage(
@@ -98,7 +106,9 @@ class _ImageViewState extends State<ImageView> {
                   Container(
                     padding: const EdgeInsets.only(top: 15, bottom: 10),
                     decoration: BoxDecoration(
-                      color: Theme.of(context).brightness == Brightness.dark
+                      color: Theme
+                          .of(context)
+                          .brightness == Brightness.dark
                           ? Colors.black
                           : Colors.white,
                       borderRadius: const BorderRadius.only(
@@ -106,8 +116,14 @@ class _ImageViewState extends State<ImageView> {
                         topLeft: Radius.circular(20),
                       ),
                     ),
-                    height: MediaQuery.of(context).size.height / 5,
-                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery
+                        .of(context)
+                        .size
+                        .height / 5,
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width,
                     alignment: Alignment.bottomCenter,
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -117,20 +133,25 @@ class _ImageViewState extends State<ImageView> {
                             alignment: Alignment.centerLeft,
                             child: Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                MainAxisAlignment.spaceBetween,
                                 children: [
                                   Column(children: [
                                     Container(
                                       margin: const EdgeInsets.only(
                                           left: 5, top: 5),
                                       alignment: Alignment.centerLeft,
-                                      width: MediaQuery.of(context).size.width /
+                                      width: MediaQuery
+                                          .of(context)
+                                          .size
+                                          .width /
                                           1.45,
                                       child: Text(
                                         widget.photographer,
                                         style: TextStyle(
-                                          color: Theme.of(context).brightness ==
-                                                  Brightness.dark
+                                          color: Theme
+                                              .of(context)
+                                              .brightness ==
+                                              Brightness.dark
                                               ? Colors.white
                                               : Colors.black,
                                           fontSize: 26,
@@ -145,23 +166,27 @@ class _ImageViewState extends State<ImageView> {
                                     child: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
                                         foregroundColor:
-                                            Theme.of(context).brightness ==
-                                                    Brightness.dark
-                                                ? Colors.black
-                                                : Colors.white,
+                                        Theme
+                                            .of(context)
+                                            .brightness ==
+                                            Brightness.dark
+                                            ? Colors.black
+                                            : Colors.white,
                                         backgroundColor:
-                                            Theme.of(context).brightness ==
-                                                    Brightness.dark
-                                                ? Colors.white
-                                                : Colors.black,
+                                        Theme
+                                            .of(context)
+                                            .brightness ==
+                                            Brightness.dark
+                                            ? Colors.white
+                                            : Colors.black,
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
-                                              BorderRadius.circular(15),
+                                          BorderRadius.circular(15),
                                         ),
                                       ),
                                       onPressed: () async {
                                         final Uri url =
-                                            Uri.parse(widget.photographerUrl);
+                                        Uri.parse(widget.photographerUrl);
                                         await launchUrl(
                                           url,
                                           mode: LaunchMode.externalApplication,
@@ -177,10 +202,13 @@ class _ImageViewState extends State<ImageView> {
                             alignment: Alignment.centerLeft,
                             width: double.infinity,
                             child: Text(
-                              'Resolution: ${widget.imageWidth}x${widget.imageHeight}',
+                              'Resolution: ${widget.imageWidth}x${widget
+                                  .imageHeight}',
                               style: TextStyle(
-                                  color: Theme.of(context).brightness ==
-                                          Brightness.dark
+                                  color: Theme
+                                      .of(context)
+                                      .brightness ==
+                                      Brightness.dark
                                       ? Colors.white
                                       : Colors.black),
                             ),
@@ -193,23 +221,30 @@ class _ImageViewState extends State<ImageView> {
                               children: [
                                 SizedBox(
                                   width:
-                                      MediaQuery.of(context).size.width / 2.3,
+                                  MediaQuery
+                                      .of(context)
+                                      .size
+                                      .width / 2.3,
                                   height: 42,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                         foregroundColor:
-                                            Theme.of(context).brightness ==
-                                                    Brightness.dark
-                                                ? Colors.black
-                                                : Colors.white,
+                                        Theme
+                                            .of(context)
+                                            .brightness ==
+                                            Brightness.dark
+                                            ? Colors.black
+                                            : Colors.white,
                                         backgroundColor:
-                                            Theme.of(context).brightness ==
-                                                    Brightness.dark
-                                                ? Colors.white24
-                                                : Colors.black38,
+                                        Theme
+                                            .of(context)
+                                            .brightness ==
+                                            Brightness.dark
+                                            ? Colors.white24
+                                            : Colors.black38,
                                         shape: RoundedRectangleBorder(
                                             borderRadius:
-                                                BorderRadius.circular(15))),
+                                            BorderRadius.circular(15))),
                                     onPressed: () {
                                       showModalBottomSheet(
                                         context: context,
@@ -217,20 +252,22 @@ class _ImageViewState extends State<ImageView> {
                                           return Container(
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                                  const BorderRadius.only(
-                                                      topLeft:
-                                                          Radius.circular(28),
-                                                      topRight:
-                                                          Radius.circular(28)),
-                                              color: Theme.of(context)
-                                                          .brightness ==
-                                                      Brightness.dark
+                                              const BorderRadius.only(
+                                                  topLeft:
+                                                  Radius.circular(28),
+                                                  topRight:
+                                                  Radius.circular(28)),
+                                              color: Theme
+                                                  .of(context)
+                                                  .brightness ==
+                                                  Brightness.dark
                                                   ? Colors.black
                                                   : Colors.white,
                                             ),
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height /
+                                            height: MediaQuery
+                                                .of(context)
+                                                .size
+                                                .height /
                                                 2.4,
                                             padding: const EdgeInsets.only(
                                                 left: 20,
@@ -239,56 +276,68 @@ class _ImageViewState extends State<ImageView> {
                                                 bottom: 15),
                                             child: Column(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                              MainAxisAlignment
+                                                  .spaceBetween,
                                               children: [
                                                 SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height /
+                                                  height: MediaQuery
+                                                      .of(context)
+                                                      .size
+                                                      .height /
                                                       18,
                                                   child: Text(
                                                       'Apply wallpaper to',
                                                       style: TextStyle(
-                                                          color: Theme.of(context)
-                                                                      .brightness ==
-                                                                  Brightness
-                                                                      .dark
+                                                          color: Theme
+                                                              .of(context)
+                                                              .brightness ==
+                                                              Brightness
+                                                                  .dark
                                                               ? Colors.white
                                                               : Colors.black)),
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height /
+                                                  height: MediaQuery
+                                                      .of(context)
+                                                      .size
+                                                      .height /
                                                       14,
                                                   child: ElevatedButton(
-                                                    style: ElevatedButton.styleFrom(
-                                                        foregroundColor: Theme.of(context)
-                                                                    .brightness ==
-                                                                Brightness.dark
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                        foregroundColor: Theme
+                                                            .of(context)
+                                                            .brightness ==
+                                                            Brightness.dark
                                                             ? Colors.black
                                                             : Colors.white,
-                                                        backgroundColor: Theme.of(
-                                                                        context)
-                                                                    .brightness ==
-                                                                Brightness.dark
+                                                        backgroundColor: Theme
+                                                            .of(
+                                                            context)
+                                                            .brightness ==
+                                                            Brightness.dark
                                                             ? Colors.white24
                                                             : Colors.black38,
                                                         shape: const RoundedRectangleBorder(
-                                                            borderRadius: BorderRadius.only(
+                                                            borderRadius: BorderRadius
+                                                                .only(
                                                                 topRight:
-                                                                    Radius.circular(
-                                                                        25),
+                                                                Radius.circular(
+                                                                    25),
                                                                 topLeft:
-                                                                    Radius.circular(25),
-                                                                bottomLeft: Radius.circular(10),
-                                                                bottomRight: Radius.circular(10)))),
+                                                                Radius.circular(
+                                                                    25),
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                    10),
+                                                                bottomRight: Radius
+                                                                    .circular(
+                                                                    10)))),
                                                     onPressed: () {
                                                       Future.delayed(
                                                           const Duration(
                                                               milliseconds:
-                                                                  150), () {
+                                                              150), () {
                                                         _setLockScreen();
                                                         Navigator.of(context)
                                                             .pop();
@@ -296,7 +345,7 @@ class _ImageViewState extends State<ImageView> {
                                                     },
                                                     child: const Align(
                                                       alignment:
-                                                          Alignment.center,
+                                                      Alignment.center,
                                                       child: Text(
                                                         'Lock screen',
                                                         style: TextStyle(
@@ -307,34 +356,38 @@ class _ImageViewState extends State<ImageView> {
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height /
+                                                  height: MediaQuery
+                                                      .of(context)
+                                                      .size
+                                                      .height /
                                                       14,
                                                   child: ElevatedButton(
-                                                    style: ElevatedButton.styleFrom(
-                                                        foregroundColor: Theme.of(
-                                                                        context)
-                                                                    .brightness ==
-                                                                Brightness.dark
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                        foregroundColor: Theme
+                                                            .of(
+                                                            context)
+                                                            .brightness ==
+                                                            Brightness.dark
                                                             ? Colors.black
                                                             : Colors.white,
-                                                        backgroundColor: Theme.of(
-                                                                        context)
-                                                                    .brightness ==
-                                                                Brightness.dark
+                                                        backgroundColor: Theme
+                                                            .of(
+                                                            context)
+                                                            .brightness ==
+                                                            Brightness.dark
                                                             ? Colors.white24
                                                             : Colors.black38,
                                                         shape: RoundedRectangleBorder(
                                                             borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10))),
+                                                            BorderRadius
+                                                                .circular(
+                                                                10))),
                                                     onPressed: () {
                                                       Future.delayed(
                                                           const Duration(
                                                               milliseconds:
-                                                                  150), () {
+                                                              150), () {
                                                         _setHomeScreen();
                                                         Navigator.of(context)
                                                             .pop();
@@ -342,7 +395,7 @@ class _ImageViewState extends State<ImageView> {
                                                     },
                                                     child: const Align(
                                                       alignment:
-                                                          Alignment.center,
+                                                      Alignment.center,
                                                       child: Text(
                                                         'Home screen',
                                                         style: TextStyle(
@@ -353,34 +406,38 @@ class _ImageViewState extends State<ImageView> {
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height /
+                                                  height: MediaQuery
+                                                      .of(context)
+                                                      .size
+                                                      .height /
                                                       14,
                                                   child: ElevatedButton(
-                                                    style: ElevatedButton.styleFrom(
-                                                        foregroundColor: Theme.of(
-                                                                        context)
-                                                                    .brightness ==
-                                                                Brightness.dark
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                        foregroundColor: Theme
+                                                            .of(
+                                                            context)
+                                                            .brightness ==
+                                                            Brightness.dark
                                                             ? Colors.black
                                                             : Colors.white,
-                                                        backgroundColor: Theme.of(
-                                                                        context)
-                                                                    .brightness ==
-                                                                Brightness.dark
+                                                        backgroundColor: Theme
+                                                            .of(
+                                                            context)
+                                                            .brightness ==
+                                                            Brightness.dark
                                                             ? Colors.white24
                                                             : Colors.black38,
                                                         shape: RoundedRectangleBorder(
                                                             borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10))),
+                                                            BorderRadius
+                                                                .circular(
+                                                                10))),
                                                     onPressed: () {
                                                       Future.delayed(
                                                           const Duration(
                                                               milliseconds:
-                                                                  150), () {
+                                                              150), () {
                                                         _setBoth();
                                                         Navigator.of(context)
                                                             .pop();
@@ -388,7 +445,7 @@ class _ImageViewState extends State<ImageView> {
                                                     },
                                                     child: const Align(
                                                       alignment:
-                                                          Alignment.center,
+                                                      Alignment.center,
                                                       child: Text(
                                                         'Both',
                                                         style: TextStyle(
@@ -399,53 +456,65 @@ class _ImageViewState extends State<ImageView> {
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height /
+                                                  height: MediaQuery
+                                                      .of(context)
+                                                      .size
+                                                      .height /
                                                       14,
                                                   child: ElevatedButton(
-                                                    style: ElevatedButton.styleFrom(
-                                                        foregroundColor: Theme.of(
-                                                                        context)
-                                                                    .brightness ==
-                                                                Brightness.dark
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                        foregroundColor: Theme
+                                                            .of(
+                                                            context)
+                                                            .brightness ==
+                                                            Brightness.dark
                                                             ? Colors.black
                                                             : Colors.white,
                                                         backgroundColor:
-                                                            Theme.of(context).brightness ==
-                                                                    Brightness
-                                                                        .dark
-                                                                ? Colors.white
-                                                                : Colors.black,
+                                                        Theme
+                                                            .of(context)
+                                                            .brightness ==
+                                                            Brightness
+                                                                .dark
+                                                            ? Colors.white
+                                                            : Colors.black,
                                                         shape: const RoundedRectangleBorder(
-                                                            borderRadius: BorderRadius.only(
+                                                            borderRadius: BorderRadius
+                                                                .only(
                                                                 bottomLeft:
-                                                                    Radius.circular(
-                                                                        24),
+                                                                Radius.circular(
+                                                                    24),
                                                                 bottomRight:
-                                                                    Radius.circular(24),
-                                                                topLeft: Radius.circular(10),
-                                                                topRight: Radius.circular(10)))),
+                                                                Radius.circular(
+                                                                    24),
+                                                                topLeft: Radius
+                                                                    .circular(
+                                                                    10),
+                                                                topRight: Radius
+                                                                    .circular(
+                                                                    10)))),
                                                     onPressed: () {
                                                       Future.delayed(
                                                           const Duration(
                                                               milliseconds:
-                                                                  150), () {
+                                                              150), () {
                                                         Navigator.of(context)
                                                             .pop();
-                                                        _shareWall();
+                                                        _openWith();
                                                       });
                                                     },
                                                     child: Align(
                                                       alignment:
-                                                          Alignment.center,
+                                                      Alignment.center,
                                                       child: Text(
                                                         'Open with',
                                                         style: TextStyle(
-                                                            color: Theme.of(context)
-                                                                        .brightness ==
-                                                                    Brightness
-                                                                        .light
+                                                            color: Theme
+                                                                .of(context)
+                                                                .brightness ==
+                                                                Brightness
+                                                                    .light
                                                                 ? Colors.white
                                                                 : Colors.black,
                                                             fontSize: 12),
@@ -468,23 +537,30 @@ class _ImageViewState extends State<ImageView> {
                                 ),
                                 SizedBox(
                                   width:
-                                      MediaQuery.of(context).size.width / 2.3,
+                                  MediaQuery
+                                      .of(context)
+                                      .size
+                                      .width / 2.3,
                                   height: 42,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                         foregroundColor:
-                                            Theme.of(context).brightness ==
-                                                    Brightness.dark
-                                                ? Colors.black
-                                                : Colors.white,
+                                        Theme
+                                            .of(context)
+                                            .brightness ==
+                                            Brightness.dark
+                                            ? Colors.black
+                                            : Colors.white,
                                         backgroundColor:
-                                            Theme.of(context).brightness ==
-                                                    Brightness.dark
-                                                ? Colors.white24
-                                                : Colors.black38,
+                                        Theme
+                                            .of(context)
+                                            .brightness ==
+                                            Brightness.dark
+                                            ? Colors.white24
+                                            : Colors.black38,
                                         shape: RoundedRectangleBorder(
                                             borderRadius:
-                                                BorderRadius.circular(15))),
+                                            BorderRadius.circular(15))),
                                     onPressed: () {
                                       showModalBottomSheet(
                                         context: context,
@@ -492,21 +568,23 @@ class _ImageViewState extends State<ImageView> {
                                           return Container(
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                                  const BorderRadius.only(
-                                                      topLeft:
-                                                          Radius.circular(28),
-                                                      topRight:
-                                                          Radius.circular(28)),
-                                              color: Theme.of(context)
-                                                          .brightness ==
-                                                      Brightness.dark
+                                              const BorderRadius.only(
+                                                  topLeft:
+                                                  Radius.circular(28),
+                                                  topRight:
+                                                  Radius.circular(28)),
+                                              color: Theme
+                                                  .of(context)
+                                                  .brightness ==
+                                                  Brightness.dark
                                                   ? Colors.black
                                                   : Colors.white,
                                             ),
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height /
-                                                3.8,
+                                            height: MediaQuery
+                                                .of(context)
+                                                .size
+                                                .height /
+                                                2.95,
                                             padding: const EdgeInsets.only(
                                                 left: 20,
                                                 right: 20,
@@ -514,63 +592,75 @@ class _ImageViewState extends State<ImageView> {
                                                 bottom: 15),
                                             child: Column(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                              MainAxisAlignment
+                                                  .spaceBetween,
                                               children: [
                                                 SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height /
+                                                  height: MediaQuery
+                                                      .of(context)
+                                                      .size
+                                                      .height /
                                                       18,
                                                   child: Text(
                                                     'Choose quality',
                                                     style: TextStyle(
-                                                        color: Theme.of(context)
-                                                                    .brightness ==
-                                                                Brightness.dark
+                                                        color: Theme
+                                                            .of(context)
+                                                            .brightness ==
+                                                            Brightness.dark
                                                             ? Colors.white
                                                             : Colors.black),
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height /
+                                                  height: MediaQuery
+                                                      .of(context)
+                                                      .size
+                                                      .height /
                                                       14,
                                                   child: ElevatedButton(
-                                                    style: ElevatedButton.styleFrom(
-                                                        foregroundColor: Theme.of(context)
-                                                                    .brightness ==
-                                                                Brightness.dark
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                        foregroundColor: Theme
+                                                            .of(context)
+                                                            .brightness ==
+                                                            Brightness.dark
                                                             ? Colors.black
                                                             : Colors.white,
-                                                        backgroundColor: Theme.of(
-                                                                        context)
-                                                                    .brightness ==
-                                                                Brightness.dark
+                                                        backgroundColor: Theme
+                                                            .of(
+                                                            context)
+                                                            .brightness ==
+                                                            Brightness.dark
                                                             ? Colors.white24
                                                             : Colors.black38,
                                                         shape: const RoundedRectangleBorder(
-                                                            borderRadius: BorderRadius.only(
+                                                            borderRadius: BorderRadius
+                                                                .only(
                                                                 topRight:
-                                                                    Radius.circular(
-                                                                        25),
+                                                                Radius.circular(
+                                                                    25),
                                                                 topLeft:
-                                                                    Radius.circular(25),
-                                                                bottomLeft: Radius.circular(10),
-                                                                bottomRight: Radius.circular(10)))),
+                                                                Radius.circular(
+                                                                    25),
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                    10),
+                                                                bottomRight: Radius
+                                                                    .circular(
+                                                                    10)))),
                                                     onPressed: () {
                                                       Future.delayed(
                                                           const Duration(
                                                               milliseconds:
-                                                                  150), () {
+                                                              150), () {
                                                         _save();
                                                         Navigator.pop(context);
                                                       });
                                                     },
                                                     child: const Align(
                                                       alignment:
-                                                          Alignment.center,
+                                                      Alignment.center,
                                                       child: Text(
                                                         'High Quality',
                                                         style: TextStyle(
@@ -581,48 +671,105 @@ class _ImageViewState extends State<ImageView> {
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height /
+                                                  height: MediaQuery
+                                                      .of(context)
+                                                      .size
+                                                      .height /
                                                       14,
                                                   child: ElevatedButton(
-                                                    style: ElevatedButton.styleFrom(
-                                                        foregroundColor: Theme.of(context)
-                                                                    .brightness ==
-                                                                Brightness.dark
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                        foregroundColor: Theme
+                                                            .of(context)
+                                                            .brightness ==
+                                                            Brightness.dark
                                                             ? Colors.black
                                                             : Colors.white,
-                                                        backgroundColor: Theme.of(
-                                                                        context)
-                                                                    .brightness ==
-                                                                Brightness.dark
+                                                        backgroundColor: Theme
+                                                            .of(
+                                                            context)
+                                                            .brightness ==
+                                                            Brightness.dark
                                                             ? Colors.white24
                                                             : Colors.black38,
-                                                        shape: const RoundedRectangleBorder(
-                                                            borderRadius: BorderRadius.only(
-                                                                bottomLeft:
-                                                                    Radius.circular(
-                                                                        24),
-                                                                bottomRight:
-                                                                    Radius.circular(24),
-                                                                topLeft: Radius.circular(10),
-                                                                topRight: Radius.circular(10)))),
+                                                        shape: RoundedRectangleBorder(
+                                                            borderRadius: BorderRadius
+                                                                .circular(
+                                                                10))),
                                                     onPressed: () {
                                                       Future.delayed(
                                                           const Duration(
                                                               milliseconds:
-                                                                  150), () {
-                                                        _saveOriginal();
+                                                              150), () {
                                                         Navigator.pop(context);
+                                                        _saveOriginal();
                                                       });
                                                     },
                                                     child: const Align(
                                                       alignment:
-                                                          Alignment.center,
+                                                      Alignment.center,
                                                       child: Text(
                                                         'Original Quality',
                                                         style: TextStyle(
                                                             color: Colors.white,
+                                                            fontSize: 12),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: MediaQuery
+                                                      .of(context)
+                                                      .size
+                                                      .height /
+                                                      14,
+                                                  child: ElevatedButton(
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                        foregroundColor: Theme
+                                                            .of(context)
+                                                            .brightness ==
+                                                            Brightness.dark
+                                                            ? Colors.black
+                                                            : Colors.white,
+                                                        backgroundColor: Theme
+                                                            .of(
+                                                            context)
+                                                            .brightness ==
+                                                            Brightness.dark
+                                                            ? Colors.white
+                                                            : Colors.black,
+                                                        shape: const RoundedRectangleBorder(
+                                                            borderRadius: BorderRadius
+                                                                .only(
+                                                                topRight:
+                                                                Radius.circular(
+                                                                    10),
+                                                                topLeft:
+                                                                Radius.circular(
+                                                                    10),
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                    25),
+                                                                bottomRight: Radius
+                                                                    .circular(
+                                                                    25)))),
+                                                    onPressed: () {
+                                                      Future.delayed(
+                                                          const Duration(
+                                                              milliseconds:
+                                                              150), () {
+                                                        Navigator.pop(context);
+                                                        _shareWall();
+                                                      });
+                                                    },
+                                                    child: Align(
+                                                      alignment:
+                                                      Alignment.center,
+                                                      child: Text(
+                                                        'Share',
+                                                        style: TextStyle(
+                                                            color: Theme.of(context).brightness == Brightness.light ? Colors.white : Colors.black,
                                                             fontSize: 12),
                                                       ),
                                                     ),
@@ -651,17 +798,41 @@ class _ImageViewState extends State<ImageView> {
             ),
             _downloading
                 ? Container(
-                    alignment: Alignment.bottomCenter,
-                    child: const LinearProgressIndicator(
-                      backgroundColor: Colors.black,
-                      color: Colors.white,
-                    ),
-                  )
+              alignment: Alignment.bottomCenter,
+              child: const LinearProgressIndicator(
+                backgroundColor: Colors.black,
+                color: Colors.white,
+              ),
+            )
                 : Container(),
           ],
         ),
       ),
     );
+  }
+
+  void _openWith() async {
+    setState(() {
+      _downloading = true;
+    });
+
+    String imageUrl = widget.originalUrl;
+    var status = await Permission.photos.request();
+    if (status.isGranted) {
+      var file = await DefaultCacheManager().getSingleFile(imageUrl);
+
+      String path = file.path;
+
+      OpenFile.open(path);
+
+      HapticFeedback.vibrate();
+
+      setState(() {
+        _downloading = false;
+      });
+    } else {
+      throw Exception('Permission denied');
+    }
   }
 
   void _shareWall() async {
@@ -676,7 +847,7 @@ class _ImageViewState extends State<ImageView> {
 
       String path = file.path;
 
-      OpenFile.open(path);
+      await Share.shareFiles([path]);
 
       HapticFeedback.vibrate();
 
@@ -796,7 +967,7 @@ class _ImageViewState extends State<ImageView> {
       var response = await Dio()
           .get(downloadUrl, options: Options(responseType: ResponseType.bytes));
       final result =
-          await ImageGallerySaver.saveImage(Uint8List.fromList(response.data));
+      await ImageGallerySaver.saveImage(Uint8List.fromList(response.data));
 
       setState(() {
         _downloading = false;
@@ -856,8 +1027,12 @@ class _ImageViewState extends State<ImageView> {
   }
 
   _askPermission() async {
-    if (await Permission.photos.request().isGranted ||
-        await Permission.storage.request().isGranted) {
+    if (await Permission.photos
+        .request()
+        .isGranted ||
+        await Permission.storage
+            .request()
+            .isGranted) {
       return true;
     } else {
       openAppSettings();
