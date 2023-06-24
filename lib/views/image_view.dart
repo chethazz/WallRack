@@ -97,7 +97,7 @@ class _ImageViewState extends State<ImageView> {
               ),
             ),
             AnimatedPositioned(
-              bottom: isPressed ? -170 : 0,
+              bottom: isPressed ? -180 : 0,
               duration: const Duration(milliseconds: 200),
               curve: Curves.easeInOut,
               child: Align(
