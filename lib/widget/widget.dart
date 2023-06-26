@@ -90,7 +90,7 @@ Widget wallpapersList({
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.transparent,
-                          foregroundColor: Colors.black,
+                          foregroundColor: Theme.of(context).brightness == Brightness.dark ? Colors.black : Colors.white,
                           elevation: 0,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18),
