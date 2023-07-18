@@ -116,10 +116,6 @@ class _ImageViewState extends State<ImageView> {
                         topLeft: Radius.circular(20),
                       ),
                     ),
-                    height: MediaQuery
-                        .of(context)
-                        .size
-                        .height / 5,
                     width: MediaQuery
                         .of(context)
                         .size
@@ -198,7 +194,7 @@ class _ImageViewState extends State<ImageView> {
                                 ]),
                           ),
                           Container(
-                            margin: const EdgeInsets.only(left: 23, bottom: 10),
+                            margin: const EdgeInsets.only(left: 23, bottom: 20, top: 10),
                             alignment: Alignment.centerLeft,
                             width: double.infinity,
                             child: Text(
