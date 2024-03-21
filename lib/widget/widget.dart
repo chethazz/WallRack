@@ -103,7 +103,7 @@ Widget wallpapersList({
                             context,
                             SwipeablePageRoute(
                               builder: (context) => ImageView(
-                                imgUrl: wallpaper.src!.portrait,
+                                imgUrl: wallpaper.src!.original,
                                 originalUrl: wallpaper.src!.original,
                                 photographer: wallpaper.photographer!,
                                 photographerUrl: wallpaper.photographerUrl!,
