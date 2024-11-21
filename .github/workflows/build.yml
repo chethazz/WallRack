@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 18
       - run: |
-          git clone https://github.com/flutter/flutter.git -b stable --depth 1
+          git clone https://github.com/flutter/flutter.git -b flutter-3.11-candidate.5 --depth 1
           echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
       - run: flutter --version
       - run: flutter pub get
